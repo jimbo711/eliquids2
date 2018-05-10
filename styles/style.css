@@ -38,6 +38,7 @@ th, td {
     padding: 5px 0 5px 10px;
     text-align: left;
     width: 250px;
+    vertical-align: middle;
 }
 .formTable textarea {
     height: 50px;

@@ -83,18 +83,28 @@
             <td><input type="text" name=""></td>
         </tr>
         <tr>
-            <th>
-            <span>Type</span>
-            <select>
-                <option>10</option>
-                <option>15</option>
-                <option>30</option>
-            </select>
-            <span>mL</span>
-            </th>
-            <th>
-                <span class="padright">Qty</span><input type="text" size="4" name="">
-            </th>
+            <th>Type</th>
+            <td>
+                <p><input type="radio" name="size" value="10">10mL</p>
+                <p><input type="radio" name="size" value="15">15mL</p>
+                <p><input type="radio" name="size" value="30">30mL</p>
+            </td>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td>
+                <select>
+                <?php
+                // Populate drop-down with numbers (and values) 1-12
+                    for ($i=1; $i<=12; $i++)
+                    {
+                        ?>
+                            <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                        <?php
+                    }
+                ?>
+                </select>
+            </td>
         </tr>
         <tr>
             <th>Selection</th>
