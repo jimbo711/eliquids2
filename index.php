@@ -23,7 +23,7 @@
         <h3 class="padtop">Add Row</h3>
         <form action="inc/addrow.php" method="GET">
         <p>
-            <input type="text" name="name" placeholder="Name">
+            <input type="text" size="14" name="name" placeholder="Name">
             <input type="text" size="4" name="qty" placeholder="Qty">
             <button type="submit">Add</button>
         </p>
@@ -46,20 +46,7 @@
         <h3>Update Row</h3>
         <form action="inc/editrow.php" method="GET">
         <p>
-            <select name="name">
-                <?php
-                // Query all the liquid names
-                $sql = "SELECT liquidname FROM madeliquids";
-                $result = mysqli_query($conn, $sql) 
-                        or die("Select field query failed: ".mysqli_error($conn));
-                // Make them into an array and loop through
-                while ($row=mysqli_fetch_array($result)) {
-                    $liquidname = $row["liquidname"];
-                    // Create an option in the select feild for each liquid name
-                    echo "<option>".$liquidname."</option>\r\n";
-                }
-                ?>
-            </select>
+            <?php include 'inc/flavourfield.php' ?>
             <input type="text" size="5" name="newQty" placeholder="New Qty">
             <button type="submit">Update</button>
         </p>
@@ -68,6 +55,7 @@
 </div><!-- /.clearfix -->
 
 <div id="orders">
+    <!-- Add a new order to the database -->
     <h3>New Order</h3>    
     <table class="formTable">
         <tr>
@@ -93,7 +81,7 @@
         <tr>
             <th>Quantity</th>
             <td>
-                <select>
+                <select id="orderQty" name="orderQty" onChange="onQtyChange()">
                 <?php
                 // Populate drop-down with numbers (and values) 1-12
                     for ($i=1; $i<=12; $i++)
@@ -108,7 +96,19 @@
         </tr>
         <tr>
             <th>Selection</th>
-            <td><textarea name="selection"></textarea></td>
+            <td>
+                <script>
+                // When the value of the order quantity field changes, we call this function
+                function onQtyChange() {
+                    // Get new value of order qty field
+                    var orderQty = document.getElementById("orderQty");
+                    var orderQty = orderQty.options[orderQty.selectedIndex].value;
+                    
+                    alert(orderQty);
+                    
+                }
+                </script>
+            </td>
         </tr>
         <tr>
             <td></td>
@@ -126,9 +126,12 @@
             <th>Posted</th>
         </tr>
     </table>
+
 </div>
 
 </div><!-- /#wrapper -->
+
+
 
 </body>
 </html>
