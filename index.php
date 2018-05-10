@@ -20,7 +20,7 @@
 
     <!-- Add item to DB -->
     <div id="addrow" class="wrapper">
-        <h3>Add Row</h3>
+        <h3 class="padtop">Add Row</h3>
         <form action="inc/addrow.php" method="GET">
         <p>
             <input type="text" name="name" placeholder="Name">
