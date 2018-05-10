@@ -71,7 +71,7 @@
     <h3>New Order</h3>    
     <table class="formTable">
         <tr>
-            <th >Date</th>
+            <th>Date</th>
             <td><input type="date" name="date"></td>
         </tr>
         <tr>
