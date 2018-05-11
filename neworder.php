@@ -49,7 +49,7 @@ $_SESSION['orderQty'] = $orderQty;
     </tr>
     <tr>
         <th>Bottle Size:</th>
-        <td><?php echo $size; ?></td>
+        <td><?php echo $size; ?>mL</td>
     </tr>
     <tr>
         <th>Order Quantity:</th>
