@@ -4,7 +4,7 @@
     Make Connection to Database
 ***********************************/
 
-// Database connection (host, username, pwd)
+// Database server connection (host, username, pwd)
 $conn = mysqli_connect("localhost", "root", "");
 
 // If connection isn't returning true
@@ -18,7 +18,7 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-// Select the table to work with
+// Select the DB to work with
 mysqli_select_db($conn, "eliquid") or die(mysqli_error($conn));
 
 ?>

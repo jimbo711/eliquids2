@@ -13,6 +13,9 @@
 
 <?php
 
+// Start a session so we can use the following data on the next page
+session_start();
+
 // Get user input
 $date     = $_GET['date'];
 $name     = $_GET['name'];
@@ -20,11 +23,12 @@ $username = $_GET['username'];
 $size     = $_GET['size'];
 $orderQty = $_GET['orderQty'];
 
-echo $date.'<br>';
-echo $name.'<br>';
-echo $username.'<br>';
-echo $size.'<br>';
-echo $orderQty.'<br>';
+// Set session variables
+$_SESSION['date']     = $date;
+$_SESSION['name']     = $name;
+$_SESSION['username'] = $username;
+$_SESSION['size']     = $size;
+$_SESSION['orderQty'] = $orderQty;
 
 ?>
 
@@ -58,11 +62,13 @@ echo $orderQty.'<br>';
     <ul>
         <form action="submitorder.php" method="GET">
         <?php
-        for ($i=1; $i<=$orderQty; $i++)
+        // Create a number of selection fields equal to the order quantity
+        for ($i=0; $i<$orderQty; $i++)
         {
             ?>
                 <li>
-                <select name="<?php echo 'flavour'.$i;?>">
+                <!-- Each is named as part of the flavour[] array -->
+                <select name="flavour[<?php echo $i; ?>]">
                     <?php
                     // Query all the liquid names
                     $sql = "SELECT liquidname FROM madeliquids";
@@ -80,6 +86,7 @@ echo $orderQty.'<br>';
             <?php
         }
         ?>
+        <li><button type="submit">Confirm</button></li>
         </form>
     </ul>
 </div>
