@@ -15,7 +15,7 @@
 
     <div id="results" class="wrapper">
         <h2>Current Stock</h2>
-        <?php include 'inc/results.php'; ?>
+        <?php include 'inc/currentstock.php'; ?>
     </div><!-- /#results -->
 
     <div class="wrapper">
