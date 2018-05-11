@@ -107,7 +107,7 @@
     </table>
     <!-- Display Unfulfilled orders -->
     <h2>Unfulfilled Orders</h2>
-    <table class="stretch">
+    <table id="unfulfilled" class="stretch">
         <form action="inc/markfulfilled.php" method="GET">
         <tr>
             <th>ID</th>
@@ -135,6 +135,18 @@
     </table>
     <!-- Display recent orders -->
     <h2>Recent Orders</h2>
+    <table id="fulfilled" class="stretch">
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Size</th>
+            <th>Qty</th>
+            <th>Selection</th>
+            <th>Done</th>
+        </tr>
+    </table>
 </div>
 
 </div><!-- /#wrapper -->

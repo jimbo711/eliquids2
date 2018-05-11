@@ -9,10 +9,18 @@ $fulfilled  = $_GET['fulfilled'];
 // Loop through array of checked boxes
 // The values will correspond to a row id which we want to update (mark fulfilled)
 foreach ($fulfilled as $order) {
-    // Store query
+    // Store query - set fulfilled column to true where row ID matches selected checkbox value
     $sql = "UPDATE orders
-    SET fulfilled = 1 
-    WHERE id = '$order'";
+            SET fulfilled = 1 
+            WHERE id = '$order'";
+
+    // Run Query
+    mysqli_query($conn, $sql);
+
+    // Store query - enter current date into 'dispatched' column
+    $sql = "UPDATE orders
+            SET dispatched = CURDATE() 
+            WHERE id = '$order'";
 
     // Run Query
     mysqli_query($conn, $sql);
