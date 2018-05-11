@@ -58,20 +58,21 @@
     <!-- Add a new order to the database -->
     <h3>New Order</h3>    
     <table class="formTable">
+        <form action="neworder.php" method="GET">
         <tr>
             <th>Date</th>
             <td><input type="date" name="date"></td>
         </tr>
         <tr>
             <th>Name</th>
-            <td><input type="text"></td>
+            <td><input type="text" name="name"></td>
         </tr>
         <tr>
             <th>Username</th>
-            <td><input type="text" name=""></td>
+            <td><input type="text" name="username"></td>
         </tr>
         <tr>
-            <th>Type</th>
+            <th>Size</th>
             <td>
                 <p><input type="radio" name="size" value="10">10mL</p>
                 <p><input type="radio" name="size" value="15">15mL</p>
@@ -81,7 +82,7 @@
         <tr>
             <th>Quantity</th>
             <td>
-                <select id="orderQty" name="orderQty" onChange="onQtyChange()">
+                <select name="orderQty">
                 <?php
                 // Populate drop-down with numbers (and values) 1-12
                     for ($i=1; $i<=12; $i++)
@@ -95,25 +96,10 @@
             </td>
         </tr>
         <tr>
-            <th>Selection</th>
-            <td>
-                <script>
-                // When the value of the order quantity field changes, we call this function
-                function onQtyChange() {
-                    // Get new value of order qty field
-                    var orderQty = document.getElementById("orderQty");
-                    var orderQty = orderQty.options[orderQty.selectedIndex].value;
-                    
-                    alert(orderQty);
-                    
-                }
-                </script>
-            </td>
-        </tr>
-        <tr>
             <td></td>
             <td><button type="submit">Submit</button></td>
         </tr>
+        </form>
     </table>
     <h2>Recent Orders</h2>
     <table>
