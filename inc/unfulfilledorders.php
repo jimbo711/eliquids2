@@ -10,16 +10,19 @@ if(mysqli_num_rows($results) > 0){
     // $row = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
     while($row = mysqli_fetch_array($results)){ 
         // each iterration, create a html table row and fill it with db row data
-        echo "<tr>\r\n";
-        echo "<td>".$row['id']."</td>\r\n";
-        echo "<td>".$row['date']."</td>\r\n";
-        echo "<td>".$row['name']."</td>\r\n";
-        echo "<td>".$row['username']."</td>\r\n";
-        echo "<td>".$row['size']."mL</td>\r\n";
-        echo "<td>".$row['orderqty']."</td>\r\n";
-        echo "<td>".$row['selection']."</td>\r\n";
-        echo "<td>".$row['fulfilled']."</td>\r\n";
-        echo "</tr>\r\n";
+        $fulfilled = $row['fulfilled'];
+        if (!$fulfilled) {
+            echo "<tr>\r\n";
+            echo "<td>".$row['id']."</td>\r\n";
+            echo "<td>".$row['date']."</td>\r\n";
+            echo "<td>".$row['name']."</td>\r\n";
+            echo "<td>".$row['username']."</td>\r\n";
+            echo "<td>".$row['size']."mL</td>\r\n";
+            echo "<td>".$row['orderqty']."</td>\r\n";
+            echo "<td>".$row['selection']."</td>\r\n";
+            echo "<td>".$row['fulfilled']."</td>\r\n";
+            echo "</tr>\r\n";
+        }
     }
 } else {
     echo "No results";

@@ -105,7 +105,8 @@
         </tr>
         </form>
     </table>
-    <h2>Recent Orders</h2>
+    <!-- Display Unfulfilled orders -->
+    <h2>Unfulfilled Orders</h2>
     <table class="stretch">
         <tr>
             <th>ID</th>
@@ -115,23 +116,14 @@
             <th>Size</th>
             <th>Qty</th>
             <th>Selection</th>
-            <th>Fulfilled</th>
-        </tr>
-        <tr>
-            <td>69</td>
-            <td>2018-11-11</td>
-            <td>Geoffery Williams</td>
-            <td>lordgeof982</td>
-            <td>30mL</td>
-            <td>5</td>
-            <td>Orange, Mandarin, Banana</td>
-            <td><input type="checkbox"></td>
+            <th>Done</th>
         </tr>
         <?php
-            include 'inc/recentorders.php';
+            include 'inc/unfulfilledorders.php';
         ?>
     </table>
-
+    <!-- Display recent orders -->
+    <h2>Recent Orders</h2>
 </div>
 
 </div><!-- /#wrapper -->

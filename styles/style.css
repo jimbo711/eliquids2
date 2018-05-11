@@ -1,5 +1,6 @@
 body {
     font-family: arial;
+    padding: 0 25px 25px;
 }
 h2 {
     font-size: 36px;
@@ -60,7 +61,6 @@ li {
 #main-wrapper {
     margin: 0 auto;
     width: 800px;
-    background: #BBB;
 }
 #results table {
     margin: 0 10% 0 0;
@@ -77,8 +77,18 @@ li {
     text-align: center;
 }
 #orders .stretch tr td:nth-child(2) {
+    /* date cell */
     width: 75px;
 }
 #orders .stretch tr td:nth-child(3) {
+    /* Name cell */
     width: 120px;
+}
+#orders .stretch tr td:nth-child(5) {
+    /* Size cell */
+    text-align: center;
+}
+#orders .stretch tr td:nth-child(6) {
+    /* Qty cell */
+    text-align: center;
 }
