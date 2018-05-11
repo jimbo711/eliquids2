@@ -41,39 +41,30 @@ $size = htmlspecialchars($size);
 $orderQty = htmlspecialchars($orderQty);
 $selectionString = htmlspecialchars($selectionString);
 
-// Display data
-echo $date.'<br>';
-echo $name.'<br>';
-echo $username.'<br>';
-echo $size.'<br>';
-echo $orderQty.'<br>';
-echo $selectionString.'<br><br>';
-
-// store query in var
+// store query
 $sql = 
-    // insert inputs into these columns
+    // insert inputs into orders table
     "INSERT INTO orders (`date`, `name`, `username`, `size`, `orderqty`, `selection`) 
      VALUES ('$date', '$name', '$username', '$size', '$orderQty', '$selectionString')";
 
 // Run Query
 if (mysqli_query($conn, $sql)) {
-    echo 'row added!<br><br>';
+    // Reduce Stock in madeliquids table
+    foreach ($flavours as $choice) {
+        // store query
+        $sql = "UPDATE madeliquids
+                SET qty = qty - $size
+                WHERE liquidname = '$choice'";
+        // run query
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error updating record: " . mysqli_error($conn);
+        } else {
+            // Return home once complete if there are no errors
+            header('Location: index.php');
+        }
+    }
 } else {
     echo "Error updating record: " . mysqli_error($conn);
-}
-
-// Reduce Stock
-foreach ($flavours as $choice) {
-    // store query
-    $sql = "UPDATE madeliquids
-            SET qty = qty - $size
-            WHERE liquidname = '$choice'";
-    // run query
-    if (mysqli_query($conn, $sql)) {
-        echo 'stock reduced!<br><br>';
-    } else {
-        echo "Error updating record: " . mysqli_error($conn);
-    }
 }
 
 ?>
