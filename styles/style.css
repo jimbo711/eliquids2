@@ -59,12 +59,16 @@ li {
 }
 #main-wrapper {
     margin: 0 auto;
-    width: 700px;
+    width: 800px;
 }
 #results table {
-    margin: 0 20px 0 0;
+    margin: 0 10% 0 0;
+    width: 90%;
 }
 #results table td, #results table th {
     padding: 10px 20px;
+    text-align: center;
+}
+#orders .stretch td:last-child {
     text-align: center;
 }

@@ -11,47 +11,51 @@
 <body>
     
 <div id="main-wrapper">
-<div class="clearfix">
+<div class="clearfix stretch">
 
     <div id="results" class="wrapper">
         <h2>Current Stock</h2>
         <?php include 'inc/results.php'; ?>
     </div><!-- /#results -->
 
-    <!-- Add item to DB -->
-    <div id="addrow" class="wrapper">
-        <h3 class="padtop">Add Row</h3>
-        <form action="inc/addrow.php" method="GET">
-        <p>
-            <input type="text" size="14" name="name" placeholder="Name">
-            <input type="text" size="4" name="qty" placeholder="Qty">
-            <button type="submit">Add</button>
-        </p>
-        </form>
-    </div>
+    <div class="wrapper">
+        <!-- Add item to DB -->
+        <div id="addrow">
+            <h3 class="padtop">Add Row</h3>
+            <form action="inc/addrow.php" method="GET">
+            <p>
+                <input type="text" size="14" name="name" placeholder="Name">
+                <input type="text" size="4" name="qty" placeholder="Qty">
+                <button type="submit">Add</button>
+            </p>
+            </form>
+        </div>
 
-    <!-- Delete item from DB -->
-    <div id="delrow" class="wrapper">
-        <h3>Delete Row</h3>
-        <form action="inc/delrow.php" method="GET">
-        <p>Select Row ID: 
-            <input type="text" size="4" name="rowID">
-            <button type="submit">Delete</button>
-        </p>
-        </form>
-    </div>
+        <!-- Delete item from DB -->
+        <div id="delrow">
+            <h3>Delete Row</h3>
+            <form action="inc/delrow.php" method="GET">
+            <p>Select Row ID: 
+                <input type="text" size="4" name="rowID">
+                <button type="submit">Delete</button>
+            </p>
+            </form>
+        </div>
 
-    <!-- Change Qty -->
-    <div id="editrow" class="wrapper">
-        <h3>Update Row</h3>
-        <form action="inc/editrow.php" method="GET">
-        <p>
-            <?php include 'inc/flavourfield.php' ?>
-            <input type="text" size="5" name="newQty" placeholder="New Qty">
-            <button type="submit">Update</button>
-        </p>
-        </form>
-    </div>
+        <!-- Change Qty -->
+        <div id="editrow">
+            <h3>Update Row</h3>
+            <form action="inc/editrow.php" method="GET">
+            <p>
+                <?php include 'inc/flavourfield.php' ?>
+                <input type="text" size="5" name="newQty" placeholder="New Qty">
+                <button type="submit">Update</button>
+            </p>
+            </form>
+        </div>
+
+    </div><!-- /.wrapper -->
+
 </div><!-- /.clearfix -->
 
 <div id="orders">
@@ -114,14 +118,14 @@
             <th>Fulfilled</th>
         </tr>
         <tr>
-            <td>ID</td>
-            <td>Date</td>
-            <td>Name</td>
-            <td>Username</td>
-            <td>Size</td>
-            <td>Qty</td>
-            <td>Selection</td>
-            <td>Fulfilled</td>
+            <td>69</td>
+            <td>2018-11-11</td>
+            <td>Geoffery Williams</td>
+            <td>lordgeof982</td>
+            <td>30mL</td>
+            <td>5</td>
+            <td>Orange, Mandarin, Banana</td>
+            <td><input type="checkbox"></td>
         </tr>
 
     </table>
