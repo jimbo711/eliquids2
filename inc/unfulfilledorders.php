@@ -20,7 +20,8 @@ if(mysqli_num_rows($results) > 0){
             echo "<td>".$row['size']."mL</td>\r\n";
             echo "<td>".$row['orderqty']."</td>\r\n";
             echo "<td>".$row['selection']."</td>\r\n";
-            echo "<td>".$row['fulfilled']."</td>\r\n";
+            // Last column will be a checkbox with a value equal to the row ID
+            echo "<td><input type=\"checkbox\" name=\"fulfilled[]\" value=\"".$row['id']."\"></td>\r\n";
             echo "</tr>\r\n";
         }
     }

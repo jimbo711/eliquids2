@@ -60,7 +60,7 @@ $_SESSION['orderQty'] = $orderQty;
 <div id="flavourSelection">
     <h3>Flavour Selection:</h3>
     <ul>
-        <form action="submitorder.php" method="GET">
+        <form action="inc/submitorder.php" method="GET">
         <?php
         // Create a number of selection fields equal to the order quantity
         for ($i=0; $i<$orderQty; $i++)
