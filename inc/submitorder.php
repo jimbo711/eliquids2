@@ -49,15 +49,22 @@ $sql =
 
 // Run Query
 if (mysqli_query($conn, $sql)) {
-    // Reduce Stock in madeliquids table
+    // Reduce Stock in madeliquids table and add to sold
     foreach ($flavours as $choice) {
-        // store query
+        // store query - reduce stock
         $sql = "UPDATE madeliquids
                 SET qty = qty - $size
                 WHERE liquidname = '$choice'";
         // run query
         mysqli_query($conn, $sql);
+        // store query - increase number sold
+        $sql = "UPDATE madeliquids
+                SET sold = sold + 1
+                WHERE liquidname = '$choice'";
+        // run query
+        mysqli_query($conn, $sql);
     }
+
     // Redirect home afterwards
     header('Location: ../index.php');
 } else {

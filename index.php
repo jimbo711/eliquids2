@@ -134,7 +134,7 @@
         </form>
     </table>
     <!-- Display recent orders -->
-    <h2>Recent Orders</h2>
+    <h2>Fulfilled Orders</h2>
     <table id="fulfilled" class="stretch">
         <tr>
             <th>ID</th>
