@@ -57,8 +57,23 @@ $sql =
 
 // Run Query
 if (mysqli_query($conn, $sql)) {
-    echo 'row added!';
+    echo 'row added!<br><br>';
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
+
+// Reduce Stock
+foreach ($flavours as $choice) {
+    // store query
+    $sql = "UPDATE madeliquids
+            SET qty = qty - $size
+            WHERE liquidname = '$choice'";
+    // run query
+    if (mysqli_query($conn, $sql)) {
+        echo 'stock reduced!<br><br>';
+    } else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+}
+
 ?>
