@@ -20,6 +20,8 @@ table tr:nth-child(odd) {
 }
 th {
     font-weight: bold;
+    padding: 10px;
+    font-size: 16px;
 }
 th, td {
     padding: 5px 10px;
@@ -66,12 +68,17 @@ li {
     margin: 0 10% 0 0;
     width: 90%;
 }
+#results table td {
+    font-size: 14px;
+}
 #results table td, #results table th {
     padding: 10px 20px;
     text-align: center;
 }
-#orders .stretch td {
+
+#orders table {
     font-size: 14px;
+    line-height: 1.25;
 }
 #orders .stretch td:last-child {
     text-align: center;

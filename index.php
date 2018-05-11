@@ -58,7 +58,7 @@
 
 </div><!-- /.clearfix -->
 
-<div id="orders">
+<div id="neworder">
     <!-- Add a new order to the database -->
     <h3>New Order</h3>    
     <table class="formTable">
@@ -105,6 +105,9 @@
         </tr>
         </form>
     </table>
+</div><!-- /#neworder -->
+
+<div id="orders">
     <!-- Display Unfulfilled orders -->
     <h2>Unfulfilled Orders</h2>
     <table id="unfulfilled" class="stretch">
