@@ -127,7 +127,9 @@
             <td>Orange, Mandarin, Banana</td>
             <td><input type="checkbox"></td>
         </tr>
-
+        <?php
+            include 'inc/recentorders.php';
+        ?>
     </table>
 
 </div>

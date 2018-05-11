@@ -60,6 +60,7 @@ li {
 #main-wrapper {
     margin: 0 auto;
     width: 800px;
+    background: #BBB;
 }
 #results table {
     margin: 0 10% 0 0;
@@ -69,6 +70,15 @@ li {
     padding: 10px 20px;
     text-align: center;
 }
+#orders .stretch td {
+    font-size: 14px;
+}
 #orders .stretch td:last-child {
     text-align: center;
+}
+#orders .stretch tr td:nth-child(2) {
+    width: 75px;
+}
+#orders .stretch tr td:nth-child(3) {
+    width: 120px;
 }
