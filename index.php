@@ -108,7 +108,7 @@
     <!-- Display Unfulfilled orders -->
     <h2>Unfulfilled Orders</h2>
     <table class="stretch">
-        <form action="markfulfilled.php" method="GET">
+        <form action="inc/markfulfilled.php" method="GET">
         <tr>
             <th>ID</th>
             <th>Date</th>
@@ -129,8 +129,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="2"><button type="submit">Mark Fulfilled</button></td>
         </tr>
         </form>
     </table>

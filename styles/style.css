@@ -92,3 +92,7 @@ li {
     /* Qty cell */
     text-align: center;
 }
+#orders .stretch tr:last-child td:last-child {
+    /* Button Cell */
+    text-align: right;
+}
