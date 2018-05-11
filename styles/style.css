@@ -73,26 +73,26 @@ li {
 #orders .stretch td {
     font-size: 14px;
 }
-#orders .stretch td:last-child {
+#orders #unfulfilled td:last-child {
     text-align: center;
 }
-#orders .stretch tr td:nth-child(2) {
+#orders #unfulfilled tr td:nth-child(2) {
     /* date cell */
     width: 75px;
 }
-#orders .stretch tr td:nth-child(3) {
+#orders #unfulfilled tr td:nth-child(3) {
     /* Name cell */
     width: 120px;
 }
-#orders .stretch tr td:nth-child(5) {
+#orders #unfulfilled tr td:nth-child(5) {
     /* Size cell */
     text-align: center;
 }
-#orders .stretch tr td:nth-child(6) {
+#orders #unfulfilled tr td:nth-child(6) {
     /* Qty cell */
     text-align: center;
 }
-#orders .stretch tr:last-child td:last-child {
+#orders #unfulfilled tr:last-child td:last-child {
     /* Button Cell */
     text-align: right;
 }

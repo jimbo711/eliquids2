@@ -144,7 +144,7 @@
             <th>Size</th>
             <th>Qty</th>
             <th>Selection</th>
-            <th>Done</th>
+            <th>Dispatched</th>
         </tr>
     </table>
 </div>
