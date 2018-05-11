@@ -31,17 +31,21 @@ li {
 .wrapper {
     width: 50%;
     float: left;
-    /*background: #ccc;*/
+}
+.stretch {
+    width: 100%;
 }
 .clearfix {
     content: "";
     display: table;
     clear: both;
 }
+.formTable {
+    width: 50%;
+    margin: 0;
+}
 .formTable td, .formTable th {
-    
-    width: 250px;
-    
+    width: 50%;
 }
 .formTable textarea {
     height: 50px;
@@ -53,14 +57,14 @@ li {
 .padtop {
     padding: 7px 0 0 0;
 }
+#main-wrapper {
+    margin: 0 auto;
+    width: 700px;
+}
 #results table {
     margin: 0 20px 0 0;
 }
 #results table td, #results table th {
     padding: 10px 20px;
     text-align: center;
-}
-#main-wrapper {
-    margin: 0 auto;
-    width: 600px;
 }

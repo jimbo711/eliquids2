@@ -102,15 +102,28 @@
         </form>
     </table>
     <h2>Recent Orders</h2>
-    <table>
+    <table class="stretch">
         <tr>
             <th>ID</th>
             <th>Date</th>
             <th>Name</th>
             <th>Username</th>
-            <th>Bottled</th>
-            <th>Posted</th>
+            <th>Size</th>
+            <th>Qty</th>
+            <th>Selection</th>
+            <th>Fulfilled</th>
         </tr>
+        <tr>
+            <td>ID</td>
+            <td>Date</td>
+            <td>Name</td>
+            <td>Username</td>
+            <td>Size</td>
+            <td>Qty</td>
+            <td>Selection</td>
+            <td>Fulfilled</td>
+        </tr>
+
     </table>
 
 </div>
