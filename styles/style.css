@@ -73,22 +73,22 @@ li {
 #orders .stretch td {
     font-size: 14px;
 }
-#orders #unfulfilled td:last-child {
+#orders .stretch td:last-child {
     text-align: center;
 }
-#orders #unfulfilled tr td:nth-child(2) {
+#orders .stretch tr td:nth-child(2) {
     /* date cell */
     width: 75px;
 }
-#orders #unfulfilled tr td:nth-child(3) {
+#orders .stretch tr td:nth-child(3) {
     /* Name cell */
     width: 120px;
 }
-#orders #unfulfilled tr td:nth-child(5) {
+#orders .stretch tr td:nth-child(5) {
     /* Size cell */
     text-align: center;
 }
-#orders #unfulfilled tr td:nth-child(6) {
+#orders .stretch tr td:nth-child(6) {
     /* Qty cell */
     text-align: center;
 }

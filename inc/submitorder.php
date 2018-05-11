@@ -1,6 +1,6 @@
 <?php 
 
-include 'inc/connect.php';
+include 'connect.php';
 
 session_start();
 
@@ -56,13 +56,10 @@ if (mysqli_query($conn, $sql)) {
                 SET qty = qty - $size
                 WHERE liquidname = '$choice'";
         // run query
-        if (!mysqli_query($conn, $sql)) {
-            echo "Error updating record: " . mysqli_error($conn);
-        } else {
-            // Return home once complete if there are no errors
-            header('Location: index.php');
-        }
+        mysqli_query($conn, $sql);
     }
+    // Redirect home afterwards
+    header('Location: ../index.php');
 } else {
     echo "Error updating record: " . mysqli_error($conn);
 }

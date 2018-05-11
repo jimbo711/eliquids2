@@ -65,7 +65,7 @@
         <form action="neworder.php" method="GET">
         <tr>
             <th>Date</th>
-            <td><input type="date" name="date"></td>
+            <td><input type="date" name="date" value="<?php echo date("Y-m-j"); ?>"></td>
         </tr>
         <tr>
             <th>Name</th>
@@ -146,6 +146,9 @@
             <th>Selection</th>
             <th>Dispatched</th>
         </tr>
+        <?php
+            include 'inc/fulfilledorders.php';
+        ?>
     </table>
 </div>
 
