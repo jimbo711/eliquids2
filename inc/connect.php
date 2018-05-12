@@ -5,7 +5,7 @@
 ***********************************/
 
 // Database server connection (host, username, pwd)
-$conn = mysqli_connect("localhost", "root", "");
+$conn = mysqli_connect("sql104.epizy.com", "epiz_22072025", "zJYnznjozQww");
 
 // If connection isn't returning true
 if (!$conn) {
@@ -19,6 +19,6 @@ if (mysqli_connect_errno()) {
 }
 
 // Select the DB to work with
-mysqli_select_db($conn, "eliquid") or die(mysqli_error($conn));
+mysqli_select_db($conn, "epiz_22072025_eliquid") or die(mysqli_error($conn));
 
 ?>
