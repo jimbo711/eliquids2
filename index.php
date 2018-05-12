@@ -87,8 +87,9 @@
             <th>Quantity</th>
             <td>
                 <select name="orderQty">
+                <option></option>
                 <?php
-                // Populate drop-down with numbers (and values) 1-12
+                    // Populate drop-down with numbers (and values) 1-12
                     for ($i=1; $i<=12; $i++)
                     {
                         ?>

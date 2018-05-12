@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-<div id="main-wrapper">
+<div id="main-wrapper" class="error">
 
 <?php
 
@@ -30,6 +30,32 @@ $_SESSION['username'] = $username;
 $_SESSION['size']     = $size;
 $_SESSION['orderQty'] = $orderQty;
 
+// Create empty error message
+$errors = "";
+
+// validate name field (only letters, dashes and spaces)
+if ($name == "") {
+    $errors .= "<p>You must enter the customer name.</p>\r\n";
+} else if(!preg_match("/^[a-zA-Z\'\-\040\.]+$/", $name)){
+    $errors .= "<p>Invalid name - Only letters, dashes and spaces are allowed.</p>\r\n";
+}
+// validate size field (must be set and must be a number)
+if(!isset($size) || !is_numeric($size)) {
+    $errors .= "<p>You must select a bottle size.</p>\r\n";
+}
+// validate orderQty (must be set, not blank and must be a number)
+if(!isset($orderQty) || $orderQty == "") {
+    $errors .= "<p>You must select an order quantity.</p>\r\n";
+} else if(!is_numeric($orderQty)) {
+    $errors .= "<p>Invalid order quantity - must be a number.</p>\r\n";
+}
+
+// Check for errors
+if ($errors !== "") {
+    // If there are errors. Exit the script here, report errors and link home.
+    echo '<h2>Woops...</h2>';
+    exit($errors.'<p><a href="index.php">'."Go Back...</a></p>\r\n");
+}
 ?>
 
 <h2>New Order</h2>
