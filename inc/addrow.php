@@ -1,10 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" type="text/css" href="../styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+</head>
+<body>
+<div id="main-wrapper" class="error">
+<h2>Woops...</h2>
 <?php
 
 include 'connect.php';
-
-/***********************************
-    Add item/row to Database
-***********************************/
 
 // Store form inputs in vars
 $newLiquidName = $_GET['name'];
@@ -15,11 +22,11 @@ $errors = "";
 
 // validate name field (only letters, dashes and spaces)
 if(!preg_match("/^[a-zA-Z\'\-\040\.]+$/", $newLiquidName)){
-    $errors .= '<p>Invalid name - Only letters, dashes and spaces are allowed.</p>';
+    $errors .= "<p>Invalid name - Only letters, dashes and spaces are allowed.</p>\r\n";
 }
 // vaildate qty (must be numeric and not empty)
 if (!is_numeric($newLiquidQty)) {
-    $errors .= '<p>Invalid qty - Qty must be a number.</p>';
+    $errors .= "<p>Invalid qty - Qty must be a number.</p>\r\n";
 }
 
 // Continue if error message is still empty
@@ -48,8 +55,11 @@ if ($errors == "") {
 
 } else {
     // Else (there were errors), report and link home
-    echo '<p>Operation aborted due to errors.  See Below:</p>';
+    echo "<p>Operation aborted due to errors.  See Below:</p>\r\n";
     echo $errors;
-    echo '<p><a href="../index.php">Go Back...</a></p>';
+    echo '<p><a href="../index.php">'."Go Back...</a></p>\r\n";
 }
 ?>
+</div><!-- /#main-wrapper -->
+</body>
+</html>

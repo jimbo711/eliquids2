@@ -12,11 +12,8 @@ h3 {
     margin: 25px 0;
     font-weight: bold;
 }
-table tr {
-    background: #fff;
-}
-table tr:nth-child(odd) {
-    background: #EEEEEE;
+a {
+    text-decoration: none;
 }
 th {
     font-weight: bold;
@@ -27,6 +24,12 @@ th, td {
     padding: 5px 10px;
     text-align: left;
     vertical-align: middle;
+}
+table tr {
+    background: #fff;
+}
+table tr:nth-child(odd) {
+    background: #EEEEEE;
 }
 li {
     margin: 0 0 10px 0;
@@ -42,6 +45,12 @@ li {
     content: "";
     display: table;
     clear: both;
+}
+.error p {
+    margin: 25px 0;
+}
+.error a {
+    font-size: 150%;
 }
 .formTable {
     width: 50%;

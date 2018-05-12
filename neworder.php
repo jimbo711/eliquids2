@@ -63,27 +63,28 @@ $_SESSION['orderQty'] = $orderQty;
         <form action="inc/submitorder.php" method="GET">
         <?php
         // Create a number of selection fields equal to the order quantity
-        for ($i=0; $i<$orderQty; $i++)
-        {
-            ?>
-                <li>
-                <!-- Each is named as part of the flavour[] array -->
-                <select name="flavour[<?php echo $i; ?>]">
-                    <?php
-                    // Query all the liquid names
-                    $sql = "SELECT liquidname FROM madeliquids";
-                    $result = mysqli_query($conn, $sql) 
-                            or die("Select field query failed: ".mysqli_error($conn));
-                    // Make them into an array and loop through
-                    while ($row=mysqli_fetch_array($result)) {
-                        $liquidname = $row["liquidname"];
-                        // Create an option in the select feild for each liquid name
-                        echo "<option>".$liquidname."</option>\r\n";
-                    }
-                    ?>
-                </select>
-                </li>
-            <?php
+        for ($i=0; $i<$orderQty; $i++) {
+        ?>
+            <li>
+            <?php // Each is named as part of the flavour[] array ?>
+            <select name="flavour[<?php echo $i; ?>]">
+                <?php // First option is blank ?>
+                <option></option>
+                <?php
+                // Query all the liquid names
+                $sql = "SELECT liquidname FROM madeliquids";
+                $result = mysqli_query($conn, $sql) 
+                        or die("Select field query failed: ".mysqli_error($conn));
+                // Make them into an array and loop through
+                while ($row=mysqli_fetch_array($result)) {
+                    $liquidname = $row["liquidname"];
+                    // Create an option in the select feild for each liquid name
+                    echo "<option>".$liquidname."</option>\r\n";
+                }
+                ?>
+            </select>
+            </li>
+        <?php
         }
         ?>
         <li><button type="submit">Confirm</button></li>

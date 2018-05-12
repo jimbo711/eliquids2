@@ -1,10 +1,10 @@
 <?php
 
 // Open select tag
-echo '<select name="name">';
+echo '<select name="name">'."\r\n";
 
 // First option is blank
-echo '<option></option>';
+echo "<option></option>\r\n";
 
 // Query all the liquid names
 $sql = "SELECT liquidname FROM madeliquids";
@@ -18,6 +18,6 @@ while ($row=mysqli_fetch_array($result)) {
 }
 
 // Close select tag
-echo '</select>';
+echo "</select>\r\n";
 
 ?>
