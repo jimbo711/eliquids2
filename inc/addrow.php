@@ -10,7 +10,7 @@ include 'connect.php';
 $newLiquidName = $_GET['name'];
 $newLiquidQty = $_GET['qty'];
 
-// Error checking vars
+// Create empty error message
 $errors = "";
 
 // validate name field (only letters, dashes and spaces)
@@ -22,7 +22,7 @@ if (!is_numeric($newLiquidQty)) {
     $errors .= '<p>Invalid qty - Qty must be a number.</p>';
 }
 
-// Continue if there are no errors
+// Continue if error message is still empty
 if ($errors == "") {
 
     // change chars from html to equiv
