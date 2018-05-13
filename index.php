@@ -1,6 +1,8 @@
 <?php
 // If user is not logged in, redirect to login page.
-
+if (!isset($_COOKIE['login'])) {
+    header('Location: login.php');
+}
 ?>
 
 <?php include_once 'inc/connect.php'; ?>

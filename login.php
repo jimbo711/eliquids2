@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-    
+
 <div id="login">
-    <form action="verifylogin.php" method="POST">
+    <form action="inc/verifylogin.php" method="POST">
     <table>
         <tr>
             <th>Username:</th>
