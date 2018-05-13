@@ -28,7 +28,7 @@ if (!isset($_COOKIE['login'])) {
     <div class="wrapper">
         <!-- Add item to DB -->
         <div id="addrow">
-            <h3 class="padtop">Add Row</h3>
+            <h3>Add Row</h3>
             <form action="inc/addrow.php" method="GET">
             <p>
                 <input type="text" size="14" name="name" placeholder="Name">

@@ -1,11 +1,13 @@
 body {
     font-family: arial;
     padding: 0 25px 25px;
+    background: #222;
 }
 h2 {
     font-size: 36px;
     font-weight: bold;
     margin: 25px 0;
+    text-align: center;
 }
 h3 {
     font-size: 28px;
@@ -52,6 +54,9 @@ li {
 .error a {
     font-size: 150%;
 }
+.error h2 {
+    margin-top: 0;
+}
 .formTable {
     width: 50%;
     margin: 0;
@@ -66,12 +71,14 @@ li {
 .padright {
     padding: 0 10px 0 0;
 }
-.padtop {
-    padding: 7px 0 0 0;
-}
 #main-wrapper {
     margin: 0 auto;
+    padding: 25px;
     width: 800px;
+    background: #FFF;
+}
+#results h2 {
+    margin-top: 0;
 }
 #results table {
     margin: 0 10% 0 0;
@@ -84,7 +91,9 @@ li {
     padding: 10px 20px;
     text-align: center;
 }
-
+#addrow h3 {
+    margin-top: 0;
+}
 #orders table {
     font-size: 14px;
     line-height: 1.25;
@@ -119,6 +128,8 @@ li {
     top: 50%;
     left: 50%;
     margin: -90px 0 0 -142px;
+    background: #FFF;
+    padding: 25px 10px 25px 20px;
 }
 #login tr {
     background: none;

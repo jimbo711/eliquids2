@@ -38,7 +38,7 @@ while ($row=mysqli_fetch_array($result)) {
 // Once approved, take user to homepage
 if ($approved) {
     // Also create a login cookie
-    setcookie("login", true, time() + (30), "/"); // 86400 = 1 day
+    setcookie("login", true, time() + (86400), "/"); // 86400 = 1 day
     header('Location: ../index.php');
 } else {
     // Otherwise, back to the login page.
