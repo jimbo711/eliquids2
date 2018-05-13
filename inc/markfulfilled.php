@@ -18,8 +18,9 @@ foreach ($fulfilled as $order) {
     mysqli_query($conn, $sql);
 
     // Store query - enter current date into 'dispatched' column
+    $date = date("Y-m-d");
     $sql = "UPDATE orders
-            SET dispatched = ".date("Y-m-d")." 
+            SET dispatched = '$date' 
             WHERE id = '$order'";
 
     // Run Query
