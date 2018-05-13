@@ -79,6 +79,8 @@ li {
 }
 #results h2 {
     margin-top: 0;
+    margin-right: 10%;
+    width: 90%;
 }
 #results table {
     margin: 0 10% 0 0;
