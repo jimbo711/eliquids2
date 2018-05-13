@@ -7,7 +7,7 @@ echo '<select name="name">'."\r\n";
 echo "<option></option>\r\n";
 
 // Query all the liquid names
-$sql = "SELECT liquidname FROM madeliquids";
+$sql = "SELECT liquidname FROM madeliquids ORDER BY liquidname ASC";
 $result = mysqli_query($conn, $sql) 
         or die("Select field query failed: ".mysqli_error($conn));
 // Make them into an array and loop through
