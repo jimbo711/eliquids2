@@ -23,12 +23,19 @@ $username = $_GET['username'];
 $size     = $_GET['size'];
 $orderQty = $_GET['orderQty'];
 
-// Set session variables
-$_SESSION['date']     = $date;
-$_SESSION['name']     = $name;
-$_SESSION['username'] = $username;
-$_SESSION['size']     = $size;
-$_SESSION['orderQty'] = $orderQty;
+// prevent sql injection
+$date = mysqli_real_escape_string($conn, $date);
+$name  = mysqli_real_escape_string($conn, $name);
+$username  = mysqli_real_escape_string($conn, $username);
+$size  = mysqli_real_escape_string($conn, $size);
+$orderQty  = mysqli_real_escape_string($conn, $orderQty);
+
+// change chars from html to equiv
+$date = htmlspecialchars($date);
+$name = htmlspecialchars($name);
+$username = htmlspecialchars($username);
+$size = htmlspecialchars($size);
+$orderQty = htmlspecialchars($orderQty);
 
 // Create empty error message
 $errors = "";
@@ -55,6 +62,13 @@ if ($errors !== "") {
     // If there are errors. Exit the script here, report errors and link home.
     echo '<h2>Woops...</h2>';
     exit($errors.'<p><a href="index.php">'."Go Back...</a></p>\r\n");
+} else {
+    // Set session variables for use on the next page
+    $_SESSION['date']     = $date;
+    $_SESSION['name']     = $name;
+    $_SESSION['username'] = $username;
+    $_SESSION['size']     = $size;
+    $_SESSION['orderQty'] = $orderQty;
 }
 ?>
 
