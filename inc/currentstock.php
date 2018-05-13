@@ -3,7 +3,7 @@
     Display items in database
 ***********************************/
 // Query all results from table
-$results = mysqli_query($conn, "SELECT * FROM madeliquids") or die(mysqli_error($conn));
+$results = mysqli_query($conn, "SELECT * FROM madeliquids ORDER BY liquidname ASC") or die(mysqli_error($conn));
 // if one or more rows are returned
 if(mysqli_num_rows($results) > 0){
     // Create html table
