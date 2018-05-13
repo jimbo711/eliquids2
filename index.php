@@ -1,3 +1,8 @@
+<?php
+// If user is not logged in, redirect to login page.
+
+?>
+
 <?php include_once 'inc/connect.php'; ?>
  
 <!DOCTYPE html>

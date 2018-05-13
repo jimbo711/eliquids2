@@ -112,3 +112,24 @@ li {
     /* Button Cell */
     text-align: right;
 }
+#login {
+    width: 284px;
+    height: 90px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -90px 0 0 -142px;
+}
+#login tr {
+    background: none;
+}
+#login tr:last-child td {
+    text-align: right;
+}
+#login input {
+    width: 146px;
+}
+#login button {
+    height: 100%;
+    width: 150px;
+}
