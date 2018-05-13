@@ -19,7 +19,7 @@ foreach ($fulfilled as $order) {
 
     // Store query - enter current date into 'dispatched' column
     $sql = "UPDATE orders
-            SET dispatched = CURDATE() 
+            SET dispatched = ".date("Y-m-d")." 
             WHERE id = '$order'";
 
     // Run Query
