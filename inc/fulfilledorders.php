@@ -4,7 +4,7 @@
     Display items in database
 ***********************************/
 // Query all results from table
-$results = mysqli_query($conn, "SELECT * FROM orders") or die(mysqli_error($conn));
+$results = mysqli_query($conn, "SELECT * FROM orders ORDER BY `dispatched`, `date` DESC") or die(mysqli_error($conn));
 // if one or more rows are returned
 if(mysqli_num_rows($results) > 0){
     // $row = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
