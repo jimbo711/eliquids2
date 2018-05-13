@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" type="text/css" href="../styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+</head>
+<body>
+<div id="main-wrapper" class="error">
+<h2>Woops...</h2>
 <?php 
 
 include 'connect.php';
@@ -82,6 +93,7 @@ if ($errors == "") {
     echo $errors;
     echo '<p><a href="../index.php">'."Go Back...</a></p>\r\n";
 }
-
-
 ?>
+</div><!-- /#main-wrapper -->
+</body>
+</html>
