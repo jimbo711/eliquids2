@@ -5,17 +5,14 @@ if (!isset($_COOKIE['login'])) {
 }
 ?>
 
-<?php include_once 'inc/connect.php'; ?>
+<?php 
+// Connect to DB
+include_once 'inc/connect.php'; 
+
+// Page header
+require_once 'inc/header.php';
+?>
  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>eLiquid</title>
-    <link rel="stylesheet" type="text/css" href="styles/reset.css">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
-<body>
     
 <div id="main-wrapper">
 <div class="clearfix stretch">
@@ -130,9 +127,7 @@ if (!isset($_COOKIE['login'])) {
             <th>Selection</th>
             <th>Done</th>
         </tr>
-        <?php
-            include 'inc/unfulfilledorders.php';
-        ?>
+        <?php include 'inc/unfulfilledorders.php'; ?>
         <tr>
             <td></td>
             <td></td>
@@ -157,15 +152,10 @@ if (!isset($_COOKIE['login'])) {
             <th>Selection</th>
             <th>Dispatched</th>
         </tr>
-        <?php
-            include 'inc/fulfilledorders.php';
-        ?>
+        <?php include 'inc/fulfilledorders.php'; ?>
     </table>
 </div>
 
 </div><!-- /#wrapper -->
 
-
-
-</body>
-</html>
+<?php include_once 'inc/footer.php'; ?>
