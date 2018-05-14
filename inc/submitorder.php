@@ -88,10 +88,10 @@ if ($errors == "") {
         echo "Error updating record: " . mysqli_error($conn);
     }
 } else {
-    // Else (there were errors), report and link home
+    // Else (there were errors), report and link to previous page
     echo "<p>Operation aborted due to errors.  See Below:</p>\r\n";
     echo $errors;
-    echo '<p><a href="../index.php">'."Go Back...</a></p>\r\n";
+    echo '<p><a href="'.$_SESSION['goback'].'">'."Go Back...</a></p>\r\n";
 }
 ?>
 </div><!-- /#main-wrapper -->
