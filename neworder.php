@@ -8,9 +8,7 @@ $page_title = "New Order";
 // Page header
 require_once 'inc/header.php';
 ?>
-
 <div id="main-wrapper" class="error">
-
     <?php
     // Start a session so we can use the following data on the next page
     session_start();
@@ -18,8 +16,11 @@ require_once 'inc/header.php';
     $date     = $_GET['date'];
     $name     = $_GET['name'];
     $username = $_GET['username'];
-    $size     = $_GET['size'];
     $orderQty = $_GET['orderQty'];
+    $size     = "";                 // Size is selected via a radio button field in new order form.
+    if (isset($_GET['size'])) {     // Only assign input to $size if an option was selected.
+        $size = $_GET['size'];      // Neglecting this was allowing a uglier looking error to display.
+    }
     // prevent sql injection
     $date = mysqli_real_escape_string($conn, $date);
     $name  = mysqli_real_escape_string($conn, $name);
@@ -41,7 +42,7 @@ require_once 'inc/header.php';
         $errors .= "<p>Invalid name - Only letters, dashes and spaces are allowed.</p>\r\n";
     }
     // validate size field (must be set and must be a number)
-    if(!isset($size) || !is_numeric($size)) {
+    if($size == "" || !is_numeric($size)) {
         $errors .= "<p>You must select a bottle size.</p>\r\n";
     }
     // validate orderQty (must be set, not blank and must be a number)
