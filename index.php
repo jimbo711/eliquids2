@@ -150,7 +150,7 @@ require_once 'inc/header.php';
             <th>Selection</th>
             <th>Dispatched</th>
         </tr>
-        <?php include 'inc/fulfilledorders.php'; ?>
+        <?php fulfilled_orders($conn); ?>
     </table>
 </div>
 
