@@ -27,5 +27,5 @@ require_once 'inc/header.php';
 
 <?php 
 // Page footer 
-include 'inc/footer.php' 
+include_once 'inc/footer.php' 
 ?>

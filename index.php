@@ -3,10 +3,10 @@
 if (!isset($_COOKIE['login'])) {
     header('Location: login.php');
 }
-
 // Connect to DB
-include_once 'inc/connect.php'; 
-
+require_once 'inc/connect.php';
+// PHP functions
+require_once 'inc/functions.php';
 // Page header
 require_once 'inc/header.php';
 ?>
@@ -17,7 +17,7 @@ require_once 'inc/header.php';
 
     <div id="results" class="wrapper">
         <h2>Current Stock</h2>
-        <?php include 'inc/currentstock.php'; ?>
+        <?php current_stock($conn); ?>
     </div><!-- /#results -->
 
     <div class="wrapper">
