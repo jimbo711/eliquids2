@@ -125,7 +125,7 @@ require_once 'inc/header.php';
             <th>Selection</th>
             <th>Done</th>
         </tr>
-        <?php include 'inc/unfulfilledorders.php'; ?>
+        <?php unfulfilled_orders($conn); ?>
         <tr>
             <td></td>
             <td></td>
