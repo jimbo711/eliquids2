@@ -1,6 +1,6 @@
 <?php 
 // Connect to DB
-include_once 'connect.php'; 
+require_once 'connect.php'; 
 // Set page title
 $page_title = "Woops...";
 // Set style path

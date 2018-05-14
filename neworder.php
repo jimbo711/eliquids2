@@ -1,6 +1,6 @@
 <?php 
 // Connect to DB
-include_once 'inc/connect.php';
+require_once 'inc/connect.php';
 // Assign page title
 $page_title = "New Order";
 // Page header
