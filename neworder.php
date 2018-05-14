@@ -1,14 +1,12 @@
-<?php include_once 'inc/connect.php'; ?>
+<?php 
+// Connect to DB
+include_once 'inc/connect.php';
+// Assign page title
+$page_title = "New Order";
+// Page header
+require_once 'inc/header.php';
+?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>New Order</title>
-    <link rel="stylesheet" type="text/css" href="styles/reset.css">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-</head>
-<body>
 <div id="main-wrapper" class="error">
 
 <?php
@@ -133,5 +131,7 @@ if ($errors !== "") {
 </div>
 
 </div><!-- /#main-wrapper -->
-</body>
-</html>
+<?php 
+// Page footer 
+include 'inc/footer.php' 
+?>

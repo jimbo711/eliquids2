@@ -3,9 +3,7 @@
 if (!isset($_COOKIE['login'])) {
     header('Location: login.php');
 }
-?>
 
-<?php 
 // Connect to DB
 include_once 'inc/connect.php'; 
 
