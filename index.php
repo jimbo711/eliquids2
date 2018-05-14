@@ -49,7 +49,7 @@ require_once 'inc/header.php';
             <h3>Update Row</h3>
             <form action="inc/editrow.php" method="GET">
             <p>
-                <?php include 'inc/flavourfield.php' ?>
+                <?php flavourfield("name", $conn); ?>
                 <input type="text" size="5" name="newQty" placeholder="New Qty">
                 <button type="submit">Update</button>
             </p>
