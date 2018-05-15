@@ -77,9 +77,9 @@ require_once 'inc/header.php';
                 </tr>
             </table>
             <div class="form-row">
-                <div class="col-8"></div>
-                <div class="col-4">
-                    <button type="submit" class="btn btn-primary btn-block" style="margin:-5px 0 0 -12px;">Submit Order</button>
+                <div class="col-7"></div>
+                <div class="col-5">
+                    <button type="submit" class="btn btn-primary btn-block" style="margin:-5px 0 0 0;">Submit Order</button>
                 </div>
             </div>
             </form>
@@ -118,11 +118,10 @@ require_once 'inc/header.php';
             <div class="form-row">
                 <div class="col"></div>
                 <div class="col-5">
-                    <button class="btn btn-danger btn-block" type="submit">Add</button>
+                    <button class="btn btn-danger btn-block" type="submit">Remove</button>
                 </div>
             </div>
             </form>
-        
 
             <h4>Update Quantity</h4>
             <form action="inc/editrow.php" method="GET">

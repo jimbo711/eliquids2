@@ -10,8 +10,8 @@ require_once 'header.php';
 ?>
 <div class="container">
     <div class="row">
-        <div class="col"><div>
-        <div class="col-6 mx-auto">
+        <div class="col"></div>
+        <div class="col-10 mx-auto">
         <h1>Woops...</h1>
         <?php
         // Start session so we can access session variable
@@ -87,7 +87,7 @@ require_once 'header.php';
             }
         } else {
             // Else (there were errors), report and link to previous page
-            echo "<p>Operation aborted due to errors.  See Below:</p>\r\n";
+            echo "<p>Operation aborted.  See Below:</p>\r\n";
             echo $errors;
             echo '<p><a href="'.$_SESSION['goback'].'" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
         }

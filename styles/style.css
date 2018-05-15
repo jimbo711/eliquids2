@@ -28,6 +28,9 @@ html, body {height: 100%;}
 #unfulfilled tr th:nth-child(7) { 
     text-align: center;
 }
+#flavourSelection .form-row {
+    margin-bottom: 15px;
+}
 .form-row input {
     margin-bottom: 15px;
 }
