@@ -10,150 +10,177 @@ require_once 'inc/functions.php';
 // Page header
 require_once 'inc/header.php';
 ?>
- 
-    
-<div id="main-wrapper">
-<div class="clearfix stretch">
+<div id="container">
 
-    <div id="results" class="wrapper">
-        <h2>Current Stock</h2>
-        <?php current_stock($conn); ?>
-    </div><!-- /#results -->
-
-    <div class="wrapper">
-        <!-- Add item to DB -->
-        <div id="addrow">
-            <h3>Add Row</h3>
-            <form action="inc/addrow.php" method="GET">
-            <p>
-                <input type="text" size="14" name="name" placeholder="Name">
-                <input type="text" size="4" name="qty" placeholder="Qty">
-                <button type="submit">Add</button>
-            </p>
-            </form>
+    <div id="currentstock" class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h1>Current Stock</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Sold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php current_stock($conn); ?>
+                </tbody>
+            </table>
         </div>
+        <div class="col"></div>
+    </div>
 
-        <!-- Delete item from DB -->
-        <div id="delrow">
-            <h3>Delete Row</h3>
-            <form action="inc/delrow.php" method="GET">
-            <p>Select Row ID: 
-                <input type="text" size="4" name="rowID">
-                <button type="submit">Delete</button>
-            </p>
-            </form>
-        </div>
-
-        <!-- Change Qty -->
-        <div id="editrow">
-            <h3>Update Row</h3>
-            <form action="inc/editrow.php" method="GET">
-            <p>
-                <?php flavourfield("name", $conn); ?>
-                <input type="text" size="5" name="newQty" placeholder="New Qty">
-                <button type="submit">Update</button>
-            </p>
-            </form>
-        </div>
-
-    </div><!-- /.wrapper -->
-
-</div><!-- /.clearfix -->
-
-<div id="neworder">
-    <!-- Add a new order to the database -->
-    <h3>New Order</h3>    
-    <table class="formTable">
-        <form action="neworder.php" method="GET">
-        <tr>
-            <th>Date</th>
-            <td><input type="date" name="date" value="<?php echo date("Y-m-j"); ?>"></td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td><input type="text" name="name"></td>
-        </tr>
-        <tr>
-            <th>Username</th>
-            <td><input type="text" name="username"></td>
-        </tr>
-        <tr>
-            <th>Size</th>
-            <td>
-                <p><input type="radio" name="size" value="10">10mL</p>
-                <p><input type="radio" name="size" value="15">15mL</p>
-                <p><input type="radio" name="size" value="30">30mL</p>
-            </td>
-        </tr>
-        <tr>
-            <th>Quantity</th>
-            <td>
-                <select name="orderQty">
-                <option></option>
-                <?php
-                    // Populate drop-down with numbers (and values) 1-12
-                    for ($i=1; $i<=12; $i++)
-                    {
-                        ?>
-                            <option value="<?php echo $i;?>"><?php echo $i;?></option>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 col-lg-5" id="neworder">
+            <h2>New Order</h2>    
+            <table class="table">
+                <form action="neworder.php" method="GET">
+                <tr>
+                    <th>Date</th>
+                    <td><input type="date" class="form-control" name="date" value="<?php echo date("Y-m-j"); ?>"></td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" class="form-control" name="name"></td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td><input type="text" class="form-control" name="username"></td>
+                </tr>
+                <tr>
+                    <th>Size</th>
+                    <td>
+                        <input type="radio" name="size" value="10">&nbsp; 10mL &nbsp; &nbsp;
+                        <input type="radio" name="size" value="15">&nbsp; 15mL &nbsp; &nbsp;
+                        <input type="radio" name="size" value="30">&nbsp; 30mL &nbsp; &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <td>
+                        <select class="form-control" name="orderQty">
+                        <option></option>
                         <?php
-                    }
-                ?>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><button type="submit">Submit</button></td>
-        </tr>
-        </form>
-    </table>
-</div><!-- /#neworder -->
+                            // Populate drop-down with numbers (and values) 1-12
+                            for ($i=1; $i<=12; $i++) {
+                                ?>
+                                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                                <?php
+                            }
+                        ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-primary btn-block">Submit</button></td>
+                </tr>
+                </form>
+            </table>
+        </div><!-- /col -->
+        <div class="col-1"></div>
+        <div class="col-1 d-sm-md"></div>
+        <div class="col-10 col-lg-4">
+            <h4>Add Flavour</h4>
+            <form class="form" action="inc/addrow.php" method="GET">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" name="name" placeholder="Name">
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" name="qty" placeholder="Qty">
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary btn-block"  type="submit">Add</button>
+            </div>
+            </form>
+        
+            <h4>Remove Flavour</h4>
+            <form action="inc/delrow.php" method="GET">
+            <div class="form-row">
+                <div class="col">
+                    <label>Select Row ID: </label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control"  name="rowID">
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-danger btn-block" type="submit">Delete</button>
+            </div>
+            </form>
+        
 
-<div id="orders">
-    <!-- Display Unfulfilled orders -->
-    <h2>Unfulfilled Orders</h2>
-    <table id="unfulfilled" class="stretch">
-        <form action="inc/markfulfilled.php" method="GET">
-        <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Size</th>
-            <th>Qty</th>
-            <th>Selection</th>
-            <th>Done</th>
-        </tr>
-        <?php unfulfilled_orders($conn); ?>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="2"><button type="submit">Mark Fulfilled</button></td>
-        </tr>
-        </form>
-    </table>
-    <!-- Display recent orders -->
-    <h2>Fulfilled Orders</h2>
-    <table id="fulfilled" class="stretch">
-        <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Size</th>
-            <th>Qty</th>
-            <th>Selection</th>
-            <th>Dispatched</th>
-        </tr>
-        <?php fulfilled_orders($conn); ?>
-    </table>
-</div>
+            <h4>Update Quantity</h4>
+            <form action="inc/editrow.php" method="GET">
+            <div class="form-row">
+                <div class="col-7">
+                    <?php flavourfield("name", $conn); ?>
+                </div>
+                <div class="col">
+                    <input type="text" name="newQty" class="form-control"  placeholder="New Qty">
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn btn-primary btn-block" type="submit">Update</button>
+            </div>                
+            </form>
 
-</div><!-- /#wrapper -->
+        </div>
+        <div class="col-1"></div>
+    </div><!-- /row -->
 
+    
+
+    <div>
+        <h2>Unfulfilled Orders</h2>
+        <table id="unfulfilled" class="stretch">
+            <form action="inc/markfulfilled.php" method="GET">
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Size</th>
+                <th>Qty</th>
+                <th>Selection</th>
+                <th>Done</th>
+            </tr>
+            <?php unfulfilled_orders($conn); ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2"><button type="submit">Mark Fulfilled</button></td>
+            </tr>
+            </form>
+        </table>
+    </div>
+
+    <div>
+        <h2>Fulfilled Orders</h2>
+        <table id="fulfilled" class="stretch">
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Size</th>
+                <th>Qty</th>
+                <th>Selection</th>
+                <th>Dispatched</th>
+            </tr>
+            <?php fulfilled_orders($conn); ?>
+        </table>
+    </div>
+
+</div><!-- /#container -->
 <?php include_once 'inc/footer.php'; ?>

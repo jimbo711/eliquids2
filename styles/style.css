@@ -1,148 +1,32 @@
-body {
-    font-family: arial;
-    padding: 25px 0;
-    background: #222;
+@media (min-width: 576px) {
+    .d-sm-md {
+        display: block;;
+    }
 }
-h2 {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 25px 0;
-    text-align: center;
+@media (min-width: 768px) { 
+    .d-sm-md {
+        display: block;
+    }
 }
-h3 {
-    font-size: 28px;
-    margin: 25px 0;
-    font-weight: bold;
+@media (min-width: 992px) { 
+    .d-sm-md {
+        display: none;
+    }
 }
-a {
-    text-decoration: none;
+@media (min-width: 1200px) {
+    .d-sm-md {
+        display: none;
+    }
 }
-th {
-    font-weight: bold;
-    padding: 10px;
-    font-size: 16px;
+
+/*body { background: #212529 !important; color: #FFF !important; }*/
+#currentstock { text-align: center; }
+.row, .form-row {
+    padding: 10px 0 !important;
 }
-th, td {
-    padding: 5px 10px;
-    text-align: left;
-    vertical-align: middle;
+h1, h2, h3 {
+    padding: 20px 0;
 }
-table tr {
-    background: #fff;
-}
-table tr:nth-child(odd) {
-    background: #EEEEEE;
-}
-li {
-    margin: 0 0 10px 0;
-}
-.wrapper {
-    width: 50%;
-    float: left;
-}
-.stretch {
-    width: 100%;
-}
-.clearfix {
-    content: "";
-    display: table;
-    clear: both;
-}
-.error p {
-    margin: 25px 0;
-}
-.error a {
-    font-size: 150%;
-}
-.error h2 {
-    margin-top: 0;
-}
-.formTable {
-    width: 50%;
-    margin: 0;
-}
-.formTable td, .formTable th {
-    width: 50%;
-}
-.formTable textarea {
-    height: 50px;
-    width: 240px;
-}
-.padright {
-    padding: 0 10px 0 0;
-}
-#main-wrapper {
-    margin: 0 auto;
-    padding: 25px;
-    width: 800px;
-    background: #FFF;
-}
-#results h2 {
-    margin-top: 0;
-    margin-right: 10%;
-    width: 90%;
-}
-#results table {
-    margin: 0 10% 0 0;
-    width: 90%;
-}
-#results table td {
-    font-size: 14px;
-}
-#results table td, #results table th {
-    padding: 10px 20px;
-    text-align: center;
-}
-#addrow h3 {
-    margin-top: 0;
-}
-#orders table {
-    font-size: 14px;
-    line-height: 1.25;
-}
-#orders .stretch td:last-child {
-    text-align: center;
-}
-#orders .stretch tr td:nth-child(2) {
-    /* date cell */
-    width: 75px;
-}
-#orders .stretch tr td:nth-child(3) {
-    /* Name cell */
-    width: 120px;
-}
-#orders .stretch tr td:nth-child(5) {
-    /* Size cell */
-    text-align: center;
-}
-#orders .stretch tr td:nth-child(6) {
-    /* Qty cell */
-    text-align: center;
-}
-#orders #unfulfilled tr:last-child td:last-child {
-    /* Button Cell */
-    text-align: right;
-}
-#login {
-    width: 284px;
-    height: 90px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin: -90px 0 0 -142px;
-    background: #FFF;
-    padding: 25px 10px 25px 20px;
-}
-#login tr {
-    background: none;
-}
-#login tr:last-child td {
-    text-align: right;
-}
-#login input {
-    width: 146px;
-}
-#login button {
-    height: 100%;
-    width: 150px;
+h4 {
+    padding: 10px 0;
 }

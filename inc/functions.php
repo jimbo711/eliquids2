@@ -1,9 +1,10 @@
 <?php
-/**************************************
+/***************************************
 
-    Display Table of Current Stock
+    Create and populate rows of 'Current Stock' html table
+        with data from 'madeliquids' db table.
 
-    - $conn is passed in and is used as the database connection
+    - $conn is passed in and is used as the databse connection.
 
 ***************************************/
 function current_stock($conn) {
@@ -11,17 +12,15 @@ function current_stock($conn) {
     $results = mysqli_query($conn, "SELECT * FROM madeliquids ORDER BY liquidname ASC") or die(mysqli_error($conn));
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
-        // Begin html table
-        echo "<table>\r\n";
-        // Create the heading row
-        echo "<tr><th>ID</th><th>Name</th><th>Qty</th><th>Sold</th></tr>\r\n";
         // $row = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
         while($row = mysqli_fetch_array($results)){ 
             // each iterration, create a html table row and fill it with db row data
-            echo "<tr><td>".$row['id']."</td><td>".$row['liquidname']."</td><td>".$row['qty']."</td><td>".$row['sold']."</td></tr>\r\n";
+            echo "<tr".'scope="row"'.">
+                      <td>".$row['id']."</td>
+                      <td>".$row['liquidname']."</td>
+                      <td>".$row['qty']."</td>
+                      <td>".$row['sold']."</td></tr>\r\n";
         }
-        // Close the html table
-        echo "</table>\r\n";
     } else {
         echo "No results";
     }
@@ -37,7 +36,7 @@ function current_stock($conn) {
 ***************************************/
 function flavourfield($n, $conn) {
     // Open select tag
-    echo '<select name="'.$n.'">'."\r\n";
+    echo '<select name="'.$n.'"'.' class="form-control"'.'>'."\r\n";
     // First option is blank
     echo "<option></option>\r\n";
     // Query all the liquid names
