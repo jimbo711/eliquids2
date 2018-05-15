@@ -79,7 +79,7 @@ require_once 'inc/header.php';
             <div class="form-row">
                 <div class="col-8"></div>
                 <div class="col-4">
-                    <button type="submit" class="btn btn-primary btn-block" style="margin:-15px 0 0 -12px;">Submit Order</button>
+                    <button type="submit" class="btn btn-primary btn-block" style="margin:-5px 0 0 -12px;">Submit Order</button>
                 </div>
             </div>
             </form>
