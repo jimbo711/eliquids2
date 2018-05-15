@@ -8,8 +8,11 @@ $style_path = "../";
 // Page header
 require_once 'header.php';
 ?>
-<div id="main-wrapper" class="error">
-        <h2>Woops...</h2>
+<div class="container">
+    <div class="row">
+        <div class="col"><div>
+        <div class="col-6 mx-auto">
+        <h1>Woops...</h1>
         <?php
         // If user input exists
         if (isset($_GET['fulfilled'])) {
@@ -40,11 +43,14 @@ require_once 'header.php';
         } else {
                 // Else (nothing was selected), report and link home
                 echo "<p>Nothing was selected.</p>\r\n";
-                echo '<p><a href="../index.php">'."Go Back...</a></p>\r\n";
+                echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
         }
         ?>
-</div><!-- /#main-wrapper -->
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
 <?php
-// Page Footer
+// Page footer
 include_once 'footer.php';
-?>    
+?>
