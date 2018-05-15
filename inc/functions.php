@@ -71,7 +71,6 @@ function fulfilled_orders($conn) {
             $fulfilled = $row['fulfilled'];
             if ($fulfilled) {
                 echo "<tr>\r\n";
-                echo "<td>".$row['id']."</td>\r\n";
                 echo "<td>".$row['date']."</td>\r\n";
                 echo "<td>".$row['name']."</td>\r\n";
                 echo "<td>".$row['username']."</td>\r\n";
@@ -105,7 +104,6 @@ function unfulfilled_orders($conn) {
             $fulfilled = $row['fulfilled'];
             if (!$fulfilled) {
                 echo "<tr>\r\n";
-                echo "<td>".$row['id']."</td>\r\n";
                 echo "<td>".$row['date']."</td>\r\n";
                 echo "<td>".$row['name']."</td>\r\n";
                 echo "<td>".$row['username']."</td>\r\n";

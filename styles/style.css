@@ -1,28 +1,40 @@
+html { font-size: 0.75rem; }
 @media (min-width: 576px) {
     .d-sm-md {
-        display: block;;
+        display: block;
     }
+    html { font-size: 0.8rem; }
 }
 @media (min-width: 768px) { 
     .d-sm-md {
         display: block;
     }
+    html { font-size: 0.9rem; }
 }
 @media (min-width: 992px) { 
     .d-sm-md {
         display: none;
     }
+    html { font-size: 1rem; }
+
 }
 @media (min-width: 1200px) {
     .d-sm-md {
         display: none;
     }
+    html { font-size: 1.1rem; }
 }
 
 /*body { background: #212529 !important; color: #FFF !important; }*/
 #currentstock { text-align: center; }
-.row, .form-row {
-    padding: 10px 0 !important;
+#unfulfilled tr td:nth-child(7) { 
+    text-align: center;
+}
+#unfulfilled tr th:nth-child(7) { 
+    text-align: center;
+}
+.form-row input {
+    margin-bottom: 15px;
 }
 h1, h2, h3 {
     padding: 20px 0;

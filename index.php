@@ -17,7 +17,7 @@ require_once 'inc/header.php';
         <div class="col-10">
             <h1>Current Stock</h1>
             <table class="table">
-                <thead>
+                <thead class="thead-light">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
@@ -75,12 +75,14 @@ require_once 'inc/header.php';
                         </select>
                     </td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td><button type="submit" class="btn btn-primary btn-block">Submit</button></td>
-                </tr>
-                </form>
             </table>
+            <div class="form-row">
+                <div class="col-8"></div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary btn-block" style="margin:-15px 0 0 -12px;">Submit Order</button>
+                </div>
+            </div>
+            </form>
         </div><!-- /col -->
         <div class="col-1"></div>
         <div class="col-1 d-sm-md"></div>
@@ -91,12 +93,15 @@ require_once 'inc/header.php';
                 <div class="col">
                     <input type="text" class="form-control" name="name" placeholder="Name">
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <input type="text" class="form-control" name="qty" placeholder="Qty">
                 </div>
             </div>
             <div class="form-row">
-                <button class="btn btn-primary btn-block"  type="submit">Add</button>
+                <div class="col"></div>
+                <div class="col-5">
+                    <button class="btn btn-primary btn-block" type="submit">Add</button>
+                </div>
             </div>
             </form>
         
@@ -106,12 +111,15 @@ require_once 'inc/header.php';
                 <div class="col">
                     <label>Select Row ID: </label>
                 </div>
-                <div class="col">
+                <div class="col-5">
                     <input type="text" class="form-control"  name="rowID">
                 </div>
             </div>
             <div class="form-row">
-                <button class="btn btn-danger btn-block" type="submit">Delete</button>
+                <div class="col"></div>
+                <div class="col-5">
+                    <button class="btn btn-danger btn-block" type="submit">Add</button>
+                </div>
             </div>
             </form>
         
@@ -122,65 +130,75 @@ require_once 'inc/header.php';
                 <div class="col-7">
                     <?php flavourfield("name", $conn); ?>
                 </div>
-                <div class="col">
+                <div class="col-5">
                     <input type="text" name="newQty" class="form-control"  placeholder="New Qty">
                 </div>
             </div>
             <div class="form-row">
-                <button class="btn btn-primary btn-block" type="submit">Update</button>
-            </div>                
+                <div class="col"></div>
+                <div class="col-5">
+                    <button class="btn btn-primary btn-block" type="submit">Update</button>
+                </div>
+            </div>              
             </form>
-
         </div>
         <div class="col-1"></div>
     </div><!-- /row -->
 
-    
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10" id="unfulfilled">
+            <h2>Unfulfilled Orders</h2>
+            <table class="table">
+                <form action="inc/markfulfilled.php" method="GET">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Selection</th>
+                        <th scope="col">Done</th>
+                    </tr>
+                </thead>
+                <?php unfulfilled_orders($conn); ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-primary">Fulfilled</button></td>
+                </tr>
+                </form>
+            </table>
+        </div>
+        <div class="col"></div>
+    </div><!-- /row -->
 
-    <div>
-        <h2>Unfulfilled Orders</h2>
-        <table id="unfulfilled" class="stretch">
-            <form action="inc/markfulfilled.php" method="GET">
-            <tr>
-                <th>ID</th>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Size</th>
-                <th>Qty</th>
-                <th>Selection</th>
-                <th>Done</th>
-            </tr>
-            <?php unfulfilled_orders($conn); ?>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="2"><button type="submit">Mark Fulfilled</button></td>
-            </tr>
-            </form>
-        </table>
-    </div>
-
-    <div>
-        <h2>Fulfilled Orders</h2>
-        <table id="fulfilled" class="stretch">
-            <tr>
-                <th>ID</th>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Size</th>
-                <th>Qty</th>
-                <th>Selection</th>
-                <th>Dispatched</th>
-            </tr>
-            <?php fulfilled_orders($conn); ?>
-        </table>
-    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h2>Fulfilled Orders</h2>
+            <table id="fulfilled" class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Size</th>
+                        <th>Qty</th>
+                        <th>Selection</th>
+                        <th>Dispatched</th>
+                    </tr>
+                </thead>
+                <?php fulfilled_orders($conn); ?>
+            </table>
+        </div>
+        <div class="col"></div>
+    </div><!-- /row -->
 
 </div><!-- /#container -->
 <?php include_once 'inc/footer.php'; ?>
