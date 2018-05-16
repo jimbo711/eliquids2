@@ -40,3 +40,12 @@ h1, h2, h3 {
 h4 {
     padding: 10px 0;
 }
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.025));
+    margin: 20px 0;
+}
+#middle-section {
+    padding: 20px 0;
+}

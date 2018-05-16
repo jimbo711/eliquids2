@@ -33,7 +33,9 @@ require_once 'inc/header.php';
         <div class="col"></div>
     </div>
 
-    <div class="row">
+    <hr>
+
+    <div id="middle-section" class="row">
         <div class="col-1"></div>
         <div class="col-10 col-lg-5" id="neworder">
             <h2>New Order</h2>    
@@ -143,6 +145,8 @@ require_once 'inc/header.php';
         </div>
         <div class="col-1"></div>
     </div><!-- /row -->
+
+    <hr>
 
     <div class="row">
         <div class="col"></div>
