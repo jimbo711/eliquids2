@@ -17,7 +17,7 @@ require_once 'inc/header.php';
                                 <label for="username">Username: </label>
                             </div>
                             <div class="col">
-                                <input id="username" class="form-control" type="text" name="username">
+                                <input id="username" class="form-control" type="email" name="username">
                             </div>
                         </div>
                     </div>
