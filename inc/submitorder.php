@@ -3,8 +3,8 @@
 require_once 'connect.php'; 
 // Set page title
 $page_title = "Woops...";
-// Set style path
-$style_path = "../";
+// Set path to root
+$path_home = "../";
 // Page header
 require_once 'header.php';
 ?>

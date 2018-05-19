@@ -17,7 +17,6 @@ html, body {height: 100%;}
     min-height: 100%;
 }
 /*body { background: #212529 !important; color: #FFF !important; }*/
-#currentstock, #currentstock h1 { text-align: center; }
 #unfulfilled tr td:nth-child(7) { 
     text-align: center !important;
 }

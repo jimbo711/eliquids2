@@ -17,7 +17,7 @@ require_once 'inc/header.php';
                                 <label for="username">Username: </label>
                             </div>
                             <div class="col">
-                                <input id="username" class="form-control" type="email" name="username">
+                                <input id="username" class="form-control" type="email" name="username" autocomplete>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@ require_once 'inc/header.php';
                                 <label for="password">Password: </label>
                             </div>
                             <div class="col">
-                                <input id="password" class="form-control" type="password" name="password">
+                                <input id="password" class="form-control" type="password" name="password" autocomplete>
                             </div>
                         </div>
                     </div>
