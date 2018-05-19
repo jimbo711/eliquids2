@@ -83,7 +83,7 @@ require_once 'inc/header.php';
             </div>
             </form>
         </div><!-- /col -->
-        <div class="col">
+        <div class="col-sm">
             <h3>Add Flavour</h3>
             <form class="form" action="inc/addrow.php" method="GET">
             <div class="form-row">
