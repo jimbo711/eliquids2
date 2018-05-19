@@ -28,7 +28,7 @@ if (!isset($path_home)) {
         if (location.hash) shiftWindow();
         window.addEventListener("hashchange", shiftWindow);
     </script>
-    <nav id="main-nav" class="navbar fixed-top navbar-expand navbar-dark bg-primary">
+    <nav id="main-nav" class="navbar fixed-top navbar-expand navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="<?php echo $path_home; ?>index.php">Eliquid Data</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
