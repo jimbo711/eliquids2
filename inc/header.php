@@ -21,9 +21,14 @@ if (!isset($path_home)) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="<?php echo $path_home; ?>js/neworder.js"></script>
 </head>
-<body>
-
-    <nav class="navbar fixed-top navbar-expand navbar-dark bg-primary">
+<body data-spy="scroll" data-target="#main-nav" data-offset="0">
+    <script>
+        // Scrollspy Offset Fix
+        var shiftWindow = function() { scrollBy(0, -60) }; // adjust -60 based on the navbar height
+        if (location.hash) shiftWindow();
+        window.addEventListener("hashchange", shiftWindow);
+    </script>
+    <nav id="main-nav" class="navbar fixed-top navbar-expand navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="<?php echo $path_home; ?>index.php">Eliquid Data</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,24 +38,16 @@ if (!isset($path_home)) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#stock">Stock <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                        <a class="nav-link" href="#neworder">New Order</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link" href="#unfulfilled">Unfulfilled</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fulfilled">Fulfilled</a>
                     </li>
                 </ul>
             </div>

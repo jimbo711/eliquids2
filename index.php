@@ -17,7 +17,7 @@ require_once 'inc/header.php';
 
 <div class="container">
     
-    <div id="currentstock" class="row">
+    <div id="stock" class="row">
         <h1>Current Stock</h1>
         <table class="table table-striped">
             <thead class="thead">
@@ -34,8 +34,8 @@ require_once 'inc/header.php';
         </table>
     </div>
     <hr>
-    <div id="middle-section" class="row">
-        <div class="col" id="neworder">
+    <div id="neworder" class="row">
+        <div class="col">
             <h2>New Order</h2>    
             <table class="table">
                 <form action="neworder.php" onsubmit="return validateOrder()" method="GET">
@@ -140,9 +140,9 @@ require_once 'inc/header.php';
         </div>
     </div><!-- /row -->
     <hr>
-    <div class="row">
+    <div id="unfulfilled" class="row">
         <h2>Unfulfilled Orders</h2>
-        <table id="unfulfilled" class="table table-striped">
+        <table id="unfulfilled-table" class="table table-striped">
             <form action="inc/markfulfilled.php" method="GET">
             <thead>
                 <tr>
@@ -169,9 +169,9 @@ require_once 'inc/header.php';
         </table>
     </div><!-- /row -->
 
-    <div class="row">
+    <div id="fulfilled" class="row">
         <h2>Fulfilled Orders</h2>
-        <table id="fulfilled" class="table table-striped">
+        <table id="fulfilled-table" class="table table-striped">
             <thead>
                 <tr>
                     <th>Date</th>

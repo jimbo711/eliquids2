@@ -1,5 +1,5 @@
 html { font-size: 0.75rem; }
-body { padding-top: 40px; }
+body { padding-top: 40px; position: relative !important;}
 h1, h2, h3, h4 { padding: 10px 0; }
 @media (min-width: 576px) {
     html { font-size: 0.8rem; }
@@ -16,10 +16,10 @@ h1, h2, h3, h4 { padding: 10px 0; }
     html { font-size: 1rem; }
     body { padding-top: 60px; }
 }
-#unfulfilled tr td:nth-child(7) { 
+#unfulfilled-table tr td:nth-child(7) { 
     text-align: center !important;
 }
-#unfulfilled tr th:nth-child(7) { 
+#unfulfilled-table tr th:nth-child(7) { 
     text-align: center !important;
 }
 #flavourSelection .form-row {
@@ -34,6 +34,6 @@ hr {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.025));
     margin: 20px 0;
 }
-#middle-section {
+#neworder {
     padding: 20px 0;
 }
