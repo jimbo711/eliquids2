@@ -10,8 +10,8 @@ require_once 'inc/header.php';
 ?>
 <div class="container">
     <div class="row">
-        <div class="col"></div>
-        <div class="col-10 mx-auto">
+        <div class="col-1"></div>
+        <div class="col">
             <?php
             // Start a session so we can use the following data on the next page
             session_start();
@@ -119,7 +119,7 @@ require_once 'inc/header.php';
                 </form>
             </div>
         </div>
-        <div class="col"></div>
+        <div class="col-1"></div>
     </div>
 </div>
 <?php
