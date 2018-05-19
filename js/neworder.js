@@ -12,16 +12,10 @@ var errors = "";
 function validateOrder() {
     
     //    Check Name    //
-    function checkName() {
-        var name = document.getElementById('name').value;
-        if (name = "" || name.length < 2) {
-            errors += "Invalid Name.\n";
-            return false;
-        } else {
-            return true;
-        }
+    var name = document.getElementById('name').value;
+    if (name = "" || name.length < 2) {
+        errors += "Invalid Name.\n";
     }
-    checkName();
 
     //    Check Username    //
     var username = document.getElementById('username').value;
