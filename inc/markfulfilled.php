@@ -9,9 +9,6 @@ $path_home = "../";
 require_once 'header.php';
 ?>
 <div class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-10 mx-auto">
         <h1>Woops...</h1>
         <?php
         // If user input exists
@@ -42,13 +39,10 @@ require_once 'header.php';
         }
         } else {
                 // Else (nothing was selected), report and link home
-                echo "<p>Nothing was selected.</p>\r\n";
+                echo '<div class="alert alert-danger" role="alert">Nothing was selected.'."</div>\r\n";
                 echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
         }
         ?>
-        </div>
-        <div class="col"></div>
-    </div>
 </div>
 <?php
 // Page footer

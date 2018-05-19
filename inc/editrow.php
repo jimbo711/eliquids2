@@ -9,49 +9,43 @@ $path_home = "../";
 require_once 'header.php';
 ?>
 <div class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-10 mx-auto">
-        <h1>Woops...</h1>
-        <?php
-        // Get user input
-        $name = "";
-        if (isset($_GET['name'])) {
-            $name = $_GET['name'];
-        }
-        $newQty = $_GET['newQty'];
-        // Create empty error message
-        $errors = "";
-        // validate name field (only letters, dashes and spaces)
-        if($name == ""){
-            $errors .= "<p>Blank field - You must choose a flavour to update.</p>\r\n";
-        }
-        // vaildate qty (must be numeric and not empty)
-        if (!is_numeric($newQty)) {
-            $errors .= "<p>Invalid qty - Qty must be a number.</p>\r\n";
-        }
-        // Continue if error message is still empty
-        if ($errors == "") {
-            // Store query
-            $sql = "UPDATE madeliquids
-                    SET qty='$newQty' 
-                    WHERE liquidname='$name'";
-            // Run Query
-            if (mysqli_query($conn, $sql)) {
-                header('Location: ../index.php');
-            } else {
-                echo "Error updating record: " . mysqli_error($conn);
-            }
+    <h1>Woops...</h1>
+    <?php
+    // Get user input
+    $name = "";
+    if (isset($_GET['name'])) {
+        $name = $_GET['name'];
+    }
+    $newQty = $_GET['newQty'];
+    // Create empty error message
+    $errors = "";
+    // validate name field (only letters, dashes and spaces)
+    if($name == ""){
+        $errors .= '<div class="alert alert-warning" role="alert">Blank Field - You must choose a flavour to update.'."</div>\r\n";
+    }
+    // vaildate qty (must be numeric and not empty)
+    if (!is_numeric($newQty)) {
+        $errors .= '<div class="alert alert-warning" role="alert">Invalid Quantity - Quantity must be a number.'."</div>\r\n";
+    }
+    // Continue if error message is still empty
+    if ($errors == "") {
+        // Store query
+        $sql = "UPDATE madeliquids
+                SET qty='$newQty' 
+                WHERE liquidname='$name'";
+        // Run Query
+        if (mysqli_query($conn, $sql)) {
+            header('Location: ../index.php');
         } else {
-            // Else (there were errors), report and link home
-            echo "<p>Operation aborted.  See Below:</p>\r\n";
-            echo $errors;
-            echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+            echo "Error updating record: " . mysqli_error($conn);
         }
-        ?>
-        </div>
-        <div class="col"></div>
-    </div>
+    } else {
+        // Else (there were errors), report and link home
+        echo '<div class="alert alert-danger" role="alert">Operation aborted.  See Below:'."</div>\r\n";
+        echo $errors;
+        echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+    }
+    ?>
 </div>
 <?php
 // Page footer

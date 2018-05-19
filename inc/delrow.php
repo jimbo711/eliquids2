@@ -9,39 +9,34 @@ $path_home = "../";
 require_once 'header.php';
 ?>
 <div class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-10 mx-auto">
-        <h1>Woops...</h1>
-        <?php
-        // Get user input
-        $rowID = $_GET['rowID'];
-        // Create empty error message
-        $errors = "";
-        // Validate input
-        if (!is_numeric($rowID)) {
-            $errors .= "<p>Invalid row ID - You must enter a number.</p>\r\n";
-        }
-        // Continue if error message is still empty
-        if ($errors == "") {
-            // Store query
-            $sql = "DELETE FROM madeliquids WHERE id='$rowID'";
-            // Run Query
-            if (mysqli_query($conn, $sql)) {
-                // Return home
-                header('Location: ../index.php');
-            } else {
-                echo "Error updating record: " . mysqli_error($conn);
-            }
+    <h1>Woops...</h1>
+    <?php
+    // Get user input
+    $rowID = $_GET['rowID'];
+    // Create empty error message
+    $errors = "";
+    // Validate input
+    if (!is_numeric($rowID)) {
+        $errors .= '<div class="alert alert-warning" role="alert">Invalid row ID - You must enter a number.'."</div>\r\n";
+    }
+    // Continue if error message is still empty
+    if ($errors == "") {
+        // Store query
+        $sql = "DELETE FROM madeliquids WHERE id='$rowID'";
+        // Run Query
+        if (mysqli_query($conn, $sql)) {
+            // Return home
+            header('Location: ../index.php');
         } else {
-            // Else (there were errors), report and link home
-            echo "<p>Operation aborted.  See Below:</p>\r\n";
-            echo $errors;
-            echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+            echo "Error updating record: " . mysqli_error($conn);
         }
-        ?>
-        </div>
-        <div class="col"></div>
+    } else {
+        // Else (there were errors), report and link home
+        echo '<div class="alert alert-danger" role="alert">Operation aborted.  See Below:'."</div>\r\n";
+        echo $errors;
+        echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+    }
+    ?>
     </div>
 </div>
 <?php
