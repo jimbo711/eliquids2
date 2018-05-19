@@ -18,24 +18,22 @@ require_once 'inc/header.php';
 <div class="container">
 
     <div id="currentstock" class="row">
-            <h1>Current Stock</h1>
-            <table class="table table-striped">
-                <thead class="thead">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Qty</th>
-                        <th scope="col">Sold</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php current_stock($conn); ?>
-                </tbody>
-            </table>
+        <h1>Current Stock</h1>
+        <table class="table table-striped">
+            <thead class="thead">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php current_stock($conn); ?>
+            </tbody>
+        </table>
     </div>
-
     <hr>
-
     <div id="middle-section" class="row">
         <div class="col" id="neworder">
             <h2>New Order</h2>    
@@ -132,54 +130,52 @@ require_once 'inc/header.php';
             </form>
         </div>
     </div><!-- /row -->
-
     <hr>
-
     <div class="row">
-            <h2>Unfulfilled Orders</h2>
-            <table id="unfulfilled" class="table table-striped">
-                <form action="inc/markfulfilled.php" method="GET">
-                <thead>
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Size</th>
-                        <th scope="col">Qty</th>
-                        <th scope="col">Selection</th>
-                        <th scope="col">Done</th>
-                    </tr>
-                </thead>
-                <?php unfulfilled_orders($conn); ?>
+        <h2>Unfulfilled Orders</h2>
+        <table id="unfulfilled" class="table table-striped">
+            <form action="inc/markfulfilled.php" method="GET">
+            <thead>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button type="submit" class="btn btn-primary">Fulfilled</button></td>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Selection</th>
+                    <th scope="col">Done</th>
                 </tr>
-                </form>
-            </table>
+            </thead>
+            <?php unfulfilled_orders($conn); ?>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button type="submit" class="btn btn-primary">Fulfilled</button></td>
+            </tr>
+            </form>
+        </table>
     </div><!-- /row -->
 
     <div class="row">
-            <h2>Fulfilled Orders</h2>
-            <table id="fulfilled" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Size</th>
-                        <th>Qty</th>
-                        <th>Selection</th>
-                        <th>Dispatched</th>
-                    </tr>
-                </thead>
-                <?php fulfilled_orders($conn); ?>
-            </table>
+        <h2>Fulfilled Orders</h2>
+        <table id="fulfilled" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Size</th>
+                    <th>Qty</th>
+                    <th>Selection</th>
+                    <th>Dispatched</th>
+                </tr>
+            </thead>
+            <?php fulfilled_orders($conn); ?>
+        </table>
     </div><!-- /row -->
 
 </div><!-- /#container -->
