@@ -26,8 +26,8 @@ require_once 'inc/header.php';
         <div class="col"></div>
         <div class="col-10">
             <h1>Current Stock</h1>
-            <table class="table">
-                <thead class="thead-light">
+            <table class="table table-striped">
+                <thead class="thead">
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
@@ -151,9 +151,9 @@ require_once 'inc/header.php';
         <div class="col"></div>
         <div class="col-10" id="unfulfilled">
             <h2>Unfulfilled Orders</h2>
-            <table class="table">
+            <table class="table table-striped">
                 <form action="inc/markfulfilled.php" method="GET">
-                <thead class="thead-light">
+                <thead>
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Name</th>
@@ -184,8 +184,8 @@ require_once 'inc/header.php';
         <div class="col"></div>
         <div class="col-10">
             <h2>Fulfilled Orders</h2>
-            <table id="fulfilled" class="table">
-                <thead class="thead-light">
+            <table id="fulfilled" class="table table-striped">
+                <thead>
                     <tr>
                         <th>Date</th>
                         <th>Name</th>
