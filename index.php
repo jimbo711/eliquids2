@@ -18,8 +18,6 @@ require_once 'inc/header.php';
 <div class="container">
 
     <div id="currentstock" class="row">
-        <div class="col-1"></div>
-        <div class="col">
             <h1>Current Stock</h1>
             <table class="table table-striped">
                 <thead class="thead">
@@ -34,14 +32,11 @@ require_once 'inc/header.php';
                 <?php current_stock($conn); ?>
                 </tbody>
             </table>
-        </div>
-        <div class="col-1"></div>
     </div>
 
     <hr>
 
     <div id="middle-section" class="row">
-        <div class="col-1"></div>
         <div class="col" id="neworder">
             <h2>New Order</h2>    
             <table class="table">
@@ -136,14 +131,11 @@ require_once 'inc/header.php';
             </div>              
             </form>
         </div>
-        <div class="col-1"></div>
     </div><!-- /row -->
 
     <hr>
 
     <div class="row">
-        <div class="col-1"></div>
-        <div class="col" id="unfulfilled">
             <h2>Unfulfilled Orders</h2>
             <table class="table table-striped">
                 <form action="inc/markfulfilled.php" method="GET">
@@ -170,13 +162,9 @@ require_once 'inc/header.php';
                 </tr>
                 </form>
             </table>
-        </div>
-        <div class="col-1"></div>
     </div><!-- /row -->
 
     <div class="row">
-        <div class="col-1"></div>
-        <div class="col">
             <h2>Fulfilled Orders</h2>
             <table id="fulfilled" class="table table-striped">
                 <thead>
@@ -192,8 +180,6 @@ require_once 'inc/header.php';
                 </thead>
                 <?php fulfilled_orders($conn); ?>
             </table>
-        </div>
-        <div class="col-1"></div>
     </div><!-- /row -->
 
 </div><!-- /#container -->
