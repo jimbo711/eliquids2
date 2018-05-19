@@ -13,13 +13,13 @@ function validateOrder() {
     
     //    Check Name    //
     var name = document.getElementById('name').value;
-    if (name = "" || name.length < 2) {
+    if (name == "" || name.length < 2) {
         errors += "Invalid Name.\n";
     }
 
     //    Check Username    //
     var username = document.getElementById('username').value;
-    if (username = "" || username.length < 2) {
+    if (username == "" || username.length < 2) {
         errors += "Invalid Username.\n";
     }
 
@@ -39,7 +39,7 @@ function validateOrder() {
 
     //    Check Qty    //
     var orderQty = document.getElementById('orderQty').value;
-    if (orderQty = "" || orderQty.length < 1 || order.Qty < 1 || isNaN(orderQty)) {
+    if (orderQty == "" || orderQty.length < 1 || orderQty < 1 || isNaN(orderQty)) {
         errors += "Invalid Quantity.\n";
     }
 

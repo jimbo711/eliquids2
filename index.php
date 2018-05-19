@@ -38,7 +38,7 @@ require_once 'inc/header.php';
         <div class="col" id="neworder">
             <h2>New Order</h2>    
             <table class="table">
-                <form action="neworder.php" onsubmit="return validateOrder()" method="GET">
+                <form action="neworder.php" onsubmit="event.preventDefault(); validateOrder()" method="GET">
                 <tr>
                     <th>Date</th>
                     <td><input type="date" class="form-control" name="date" value="<?php echo date("Y-m-j"); ?>"></td>
