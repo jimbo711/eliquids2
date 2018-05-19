@@ -1,5 +1,8 @@
 <?php
+// Set path to root
+$path_home = "../";
 
+// Connect to DB
 include 'connect.php';
 
 // Get user input
