@@ -1,18 +1,14 @@
 html { font-size: 0.75rem; }
 @media (min-width: 576px) {
-    .d-sm-md { display: block; }
     html { font-size: 0.8rem; }
 }
 @media (min-width: 768px) { 
-    .d-sm-md {display: block; }
     html { font-size: 0.9rem; }
 }
 @media (min-width: 992px) { 
-    .d-sm-md {display: none; }
     html { font-size: 1rem; }
 }
 @media (min-width: 1200px) {
-    .d-sm-md { display: none; }
     html { font-size: 1.1rem; }
 }
 html, body {height: 100%;}

@@ -15,7 +15,10 @@ require_once 'header.php';
         <h1>Woops...</h1>
         <?php
         // Get user input
-        $name = $_GET['name'];
+        $name = "";
+        if (isset($_GET['name'])) {
+            $name = $_GET['name'];
+        }
         $newQty = $_GET['newQty'];
         // Create empty error message
         $errors = "";

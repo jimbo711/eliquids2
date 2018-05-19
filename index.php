@@ -81,7 +81,6 @@ require_once 'inc/header.php';
             </div>
             </form>
         </div><!-- /col -->
-        <div class="col-1"></div>
         <div class="col">
             <h4>Add Flavour</h4>
             <form class="form" action="inc/addrow.php" method="GET">

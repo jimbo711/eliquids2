@@ -38,7 +38,7 @@ function flavourfield($n, $conn) {
     // Open select tag
     echo '<select name="'.$n.'"'.' class="form-control"'.'>'."\r\n";
     // First option is blank
-    echo '<option value="">Select Flavour...</option>'."\r\n";
+    echo '<option value="" disabled selected>Select Flavour...</option>'."\r\n";
     // Query all the liquid names
     $sql = "SELECT liquidname FROM madeliquids ORDER BY liquidname ASC";
     $result = mysqli_query($conn, $sql) 
