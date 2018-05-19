@@ -54,9 +54,18 @@ require_once 'inc/header.php';
                 <tr>
                     <th>Size</th>
                     <td>
-                        <input type="radio" name="size" value="10">&nbsp; 10mL &nbsp; &nbsp;
-                        <input type="radio" name="size" value="15">&nbsp; 15mL &nbsp; &nbsp;
-                        <input type="radio" name="size" value="30">&nbsp; 30mL &nbsp; &nbsp;
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="size" id="radio10ml" value="10">
+                            <label class="form-check-label" for="radio10ml">10mL</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="size" id="radio20ml" value="15">
+                            <label class="form-check-label" for="radio20ml">15mL</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="size" id="radio30ml" value="30">
+                            <label class="form-check-label" for="radio30ml">30mL</label>
+                        </div>                    
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +76,7 @@ require_once 'inc/header.php';
                 </tr>
             </table>
             <div class="form-row">
-                <div class="col-7"></div>
+                <div class="col"></div>
                 <div class="col-5">
                     <button type="submit" class="btn btn-primary btn-block" style="margin:-5px 0 0 0;">Submit Order</button>
                 </div>
