@@ -41,6 +41,6 @@ if (mysqli_connect_errno()) {
 }
 
 // Select the DB to work with
-mysqli_select_db($conn, "eliquid") or die(mysqli_error($conn));
+mysqli_select_db($conn, "epiz_22072025_eliquid") or die(mysqli_error($conn));
 
 ?>

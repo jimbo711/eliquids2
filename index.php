@@ -1,4 +1,13 @@
 <?php
+/*
+        TO DO
+
+    #   Add cancel button on neworder.php
+    #   
+
+*/
+
+
 // If user is not logged in, redirect to login page.
 if (!isset($_COOKIE['login'])) {
     header('Location: login.php');
@@ -10,6 +19,7 @@ require_once 'inc/functions.php';
 // Page header
 require_once 'inc/header.php';
 ?>
+<script src="js/script.js"></script>
 <div id="container">
 
     <div id="currentstock" class="row">
@@ -37,21 +47,21 @@ require_once 'inc/header.php';
 
     <div id="middle-section" class="row">
         <div class="col-1"></div>
-        <div class="col-10 col-lg-5" id="neworder">
+        <div class="col" id="neworder">
             <h2>New Order</h2>    
             <table class="table">
-                <form action="neworder.php" method="GET">
+                <form action="neworder.php" onsubmit="return validateOrder()" method="GET">
                 <tr>
                     <th>Date</th>
                     <td><input type="date" class="form-control" name="date" value="<?php echo date("Y-m-j"); ?>"></td>
                 </tr>
                 <tr>
                     <th>Name</th>
-                    <td><input type="text" class="form-control" name="name"></td>
+                    <td><input type="text" class="form-control" id="name" name="name"></td>
                 </tr>
                 <tr>
                     <th>Username</th>
-                    <td><input type="text" class="form-control" name="username"></td>
+                    <td><input type="text" class="form-control" id="username" name="username"></td>
                 </tr>
                 <tr>
                     <th>Size</th>
@@ -64,17 +74,7 @@ require_once 'inc/header.php';
                 <tr>
                     <th>Quantity</th>
                     <td>
-                        <select class="form-control" name="orderQty">
-                        <option></option>
-                        <?php
-                            // Populate drop-down with numbers (and values) 1-12
-                            for ($i=1; $i<=12; $i++) {
-                                ?>
-                                <option value="<?php echo $i;?>"><?php echo $i;?></option>
-                                <?php
-                            }
-                        ?>
-                        </select>
+                        <input type="number" class="form-control" id="orderQty" name="orderQty">
                     </td>
                 </tr>
             </table>
@@ -87,8 +87,7 @@ require_once 'inc/header.php';
             </form>
         </div><!-- /col -->
         <div class="col-1"></div>
-        <div class="col-1 d-sm-md"></div>
-        <div class="col-10 col-lg-4">
+        <div class="col">
             <h4>Add Flavour</h4>
             <form class="form" action="inc/addrow.php" method="GET">
             <div class="form-row">
