@@ -19,10 +19,10 @@ html, body {height: 100%;}
 /*body { background: #212529 !important; color: #FFF !important; }*/
 #currentstock, #currentstock h1 { text-align: center; }
 #unfulfilled tr td:nth-child(7) { 
-    text-align: center;
+    text-align: center !important;
 }
 #unfulfilled tr th:nth-child(7) { 
-    text-align: center;
+    text-align: center !important;
 }
 #flavourSelection .form-row {
     margin-bottom: 15px;
@@ -30,11 +30,8 @@ html, body {height: 100%;}
 .form-row input {
     margin-bottom: 15px;
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
     padding: 20px 0;
-}
-h4 {
-    padding: 10px 0;
 }
 hr {
     border: 0;

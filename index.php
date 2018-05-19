@@ -77,7 +77,7 @@ require_once 'inc/header.php';
             </form>
         </div><!-- /col -->
         <div class="col">
-            <h4>Add Flavour</h4>
+            <h3>Add Flavour</h3>
             <form class="form" action="inc/addrow.php" method="GET">
             <div class="form-row">
                 <div class="col">
@@ -95,7 +95,7 @@ require_once 'inc/header.php';
             </div>
             </form>
         
-            <h4>Remove Flavour</h4>
+            <h3>Remove Flavour</h3>
             <form action="inc/delrow.php" method="GET">
             <div class="form-row">
                 <div class="col">
@@ -113,7 +113,7 @@ require_once 'inc/header.php';
             </div>
             </form>
 
-            <h4>Update Quantity</h4>
+            <h3>Update Quantity</h3>
             <form action="inc/editrow.php" method="GET">
             <div class="form-row">
                 <div class="col-7">
@@ -137,7 +137,7 @@ require_once 'inc/header.php';
 
     <div class="row">
             <h2>Unfulfilled Orders</h2>
-            <table class="table table-striped">
+            <table id="unfulfilled" class="table table-striped">
                 <form action="inc/markfulfilled.php" method="GET">
                 <thead>
                     <tr>
