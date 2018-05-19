@@ -18,8 +18,8 @@ require_once 'inc/header.php';
 <div class="container">
 
     <div id="currentstock" class="row">
-        <div class="col"></div>
-        <div class="col-10">
+        <div class="col-1"></div>
+        <div class="col">
             <h1>Current Stock</h1>
             <table class="table table-striped">
                 <thead class="thead">
@@ -35,7 +35,7 @@ require_once 'inc/header.php';
                 </tbody>
             </table>
         </div>
-        <div class="col"></div>
+        <div class="col-1"></div>
     </div>
 
     <hr>
