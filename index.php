@@ -16,7 +16,7 @@ require_once 'inc/header.php';
 ?>
 
 <div class="container">
-
+    
     <div id="currentstock" class="row">
         <h1>Current Stock</h1>
         <table class="table table-striped">

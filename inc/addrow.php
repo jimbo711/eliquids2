@@ -57,7 +57,7 @@ require_once 'header.php';
 
         } else {
             // Else (there were errors), report and link home
-            echo "<p>Operation aborted.  See Below:</p>\r\n";
+            echo '<div class="alert alert-danger" role="alert">Operation aborted.  See Below:'."</div>\r\n";
             echo $errors;
             echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
         }
