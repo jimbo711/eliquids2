@@ -19,7 +19,7 @@ require_once 'inc/functions.php';
 // Page header
 require_once 'inc/header.php';
 ?>
-<script src="js/script.js"></script>
+
 <div id="container">
 
     <div id="currentstock" class="row">

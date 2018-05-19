@@ -112,7 +112,8 @@ require_once 'inc/header.php';
                 }
                 ?>
                 <div class="form-row">
-                    <div class="col-6"><button type="submit" class="btn btn-primary btn-block">Confirm</button></div>
+                    <div class="col-3"><a href="index.php" class="btn btn-danger btn-block" role="button">Cancel</a></div>
+                    <div class="col-3"><button type="submit" class="btn btn-primary btn-block">Confirm</button></div>
                     <div class="col"></div>
                 </div>
                 </form>
