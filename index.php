@@ -81,13 +81,13 @@ require_once 'inc/header.php';
         </div><!-- /col -->
         <div class="col-sm">
             <h3>Add Flavour</h3>
-            <form class="form" action="inc/addrow.php" method="GET">
+            <form class="form" action="inc/addrow.php" onsubmit="return validateAddFlv()" method="GET">
             <div class="form-row">
                 <div class="col">
-                    <input type="text" class="form-control" name="name" placeholder="Name">
+                    <input type="text" id="addFlavourName" class="form-control" name="name" placeholder="Name">
                 </div>
                 <div class="col-5">
-                    <input type="text" class="form-control" name="qty" placeholder="Qty">
+                    <input type="text" id="addFlavourQty" class="form-control" name="qty" placeholder="Qty">
                 </div>
             </div>
             <div class="form-row">

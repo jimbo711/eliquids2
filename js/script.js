@@ -5,12 +5,44 @@
     submission if it finds errors.
 
 */
-// Error Message
-var errors = "";
+/*  
+    validateAddFlv()
+        Validate 'Add Flavour' form on submit
+*/
+function validateAddFlv() {
+    //  New Error Msg
+    var errors = "";
+    //  Check flavour name 
+    var name = document.getElementById('addFlavourName').value;
+    if (name == "" || typeof name !== "string" || name.length < 3) {
+        errors += "Invalid Flavour Name.\n";
+    }
+    //  Check quantity
+    var qty = document.getElementById('addFlavourQty').value;
+    if (qty == "" || isNaN(qty) || qty > 2000) {
+        errors += "Invalid Quantity";
+    }
+    // Check for errors
+    if (errors !== "") {
+        // Display error message
+        errors = "Error:\n" + errors;
+        alert(errors);
+        // Return false to cancel the form submission.
+        errors = ""; // reset errors
+        return false;
+    } else {
+        // Return true and submit the form.
+        return true;
+    }
+    
+}
 
-// Validate New Order Field on Submit
+// Validate New Order form on submit
 function validateOrder() {
     
+    //    New Error Msg     //
+    var errors = "";
+
     //    Check Name    //
     var name = document.getElementById('name').value;
     if (name == "" || name.length < 2) {
