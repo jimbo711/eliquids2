@@ -99,13 +99,13 @@ require_once 'inc/header.php';
             </form>
         
             <h3>Remove Flavour</h3>
-            <form action="inc/delrow.php" method="GET">
+            <form action="inc/delrow.php" onsubmit="return validateDelRow()" method="GET">
             <div class="form-row">
                 <div class="col">
                     <label>Select Row ID: </label>
                 </div>
                 <div class="col-5">
-                    <input type="text" class="form-control"  name="rowID">
+                    <input type="text" class="form-control" id="delrowid" name="rowID">
                 </div>
             </div>
             <div class="form-row">

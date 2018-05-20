@@ -5,6 +5,31 @@
     submission if it finds errors.
 
 */
+/*
+    validateDelRow()
+        validate delete row form on submit
+*/
+function validateDelRow() {
+    //  New Error Msg
+    var errors = "";
+    //  Check row id 
+    var row = document.getElementById('delrowid').value;
+    if (row == "" || isNaN(row) || row < 0) {
+        errors += "Invalid Row ID.\n";
+    }
+    // Check for errors
+    if (errors !== "") {
+        // Display error message
+        errors = "Error:\n" + errors;
+        alert(errors);
+        // Return false to cancel the form submission.
+        errors = ""; // reset errors
+        return false;
+    } else {
+        // Return true and submit the form.
+        return true;
+    }
+}
 /*  
     validateAddFlv()
         Validate 'Add Flavour' form on submit
