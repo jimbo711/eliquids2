@@ -43,6 +43,9 @@ if ($approved) {
     // For 1 day if it's Jim.
     if ($username == "the.jim.farrugia@gmail.com") {
         setcookie("login", true, time() + (86400), "/"); // 86400 secs = 1 day
+    // For 1 day if it's Mon.
+    } elseif ($username == "moni_93@live.com.au") {
+        setcookie("login", true, time() + (86400), "/");
     } else {
     // Else for 20min.
         setcookie("login", true, time() + (60 * 20), "/");
