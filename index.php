@@ -138,28 +138,28 @@ require_once 'inc/header.php';
     <hr>
     <div id="unfulfilled" class="row">
         <h2>Unfulfilled Orders</h2>
-        <table id="unfulfilled-table" class="table table-striped">
+        <table id="unfulfilled-table" class="table table-striped col-12">
             <form action="inc/markfulfilled.php" method="GET">
             <thead>
-                <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Selection</th>
-                    <th scope="col">Done</th>
+                <tr class="row">
+                    <th style="width: 12.499999995%">Date</th>
+                    <th class="col-2">Name</th>
+                    <th class="col">Username</th>
+                    <th class="col-1">Size</th>
+                    <th class="col-1">Qty</th>
+                    <th class="col-3">Selection</th>
+                    <th style="width: 12.499999995%">Done</th>
                 </tr>
             </thead>
             <?php unfulfilled_orders($conn); ?>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button type="submit" class="btn btn-primary">Fulfilled</button></td>
+            <tr class="row">
+                <td style="width: 12.499999995%"></td>
+                <td class="col-2"></td>
+                <td class="col"></td>
+                <td class="col-1"></td>
+                <td class="col-1"></td>
+                <td class="col-3"></td>
+                <td style="width: 12.499999995%"><button type="submit" class="btn btn-primary">Fulfilled</button></td>
             </tr>
             </form>
         </table>
@@ -167,16 +167,16 @@ require_once 'inc/header.php';
 
     <div id="fulfilled" class="row">
         <h2>Fulfilled Orders</h2>
-        <table id="fulfilled-table" class="table table-striped">
+        <table id="fulfilled-table" class="table table-striped col-12">
             <thead>
-                <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Selection</th>
-                    <th scope="col">Dispatched</th>
+                <tr class="row">
+                    <th style="width: 12.499999995%">Date</th>
+                    <th class="col-2">Name</th>
+                    <th class="col">Username</th>
+                    <th class="col-1">Size</th>
+                    <th class="col-1">Qty</th>
+                    <th class="col-3">Selection</th>
+                    <th style="width: 12.499999995%">Dispatched</th>
                 </tr>
             </thead>
             <?php fulfilled_orders($conn); ?>
