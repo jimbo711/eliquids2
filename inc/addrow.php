@@ -20,9 +20,9 @@ require_once 'header.php';
     $errors = "";
 
     // validate name field (only letters, dashes and spaces)
-    //if(!preg_match("/^[a-zA-Z\'\-\040\.]+$/", $newLiquidName)){
-    //    $errors .= '<div class="alert alert-warning" role="alert">Invalid Name - Only letters, dashes and spaces are allowed.'."</div>\r\n";
-    //}
+    if(!preg_match("/^[a-zA-Z\'\-\040\.]+$/", $newLiquidName)){
+        $errors .= '<div class="alert alert-warning" role="alert">Invalid Name - Only letters, dashes and spaces are allowed.'."</div>\r\n";
+    }
     // vaildate qty (must be numeric and not empty)
     if (!is_numeric($newLiquidQty)) {
         $errors .= '<div class="alert alert-warning" role="alert">Invalid Quantity - Must be a number and not blank.'."</div>\r\n";

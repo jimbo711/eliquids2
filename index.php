@@ -170,13 +170,13 @@ require_once 'inc/header.php';
         <table id="fulfilled-table" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Size</th>
-                    <th>Qty</th>
-                    <th>Selection</th>
-                    <th>Dispatched</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Selection</th>
+                    <th scope="col">Dispatched</th>
                 </tr>
             </thead>
             <?php fulfilled_orders($conn); ?>
