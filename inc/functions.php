@@ -111,7 +111,7 @@ function unfulfilled_orders($conn) {
                 echo "<td".' class="col-1"'.">".$row['orderqty']."</td>\r\n";
                 echo "<td".' class="col-3"'.">".$row['selection']."</td>\r\n";
                 // Last column will be a checkbox with a value equal to the row ID
-                echo "<td".' style="width: 12.499999995%"'."><input type=\"checkbox\" name=\"fulfilled[]\" value=\"".$row['id']."\"></td>\r\n";
+                echo "<td".' style="width: 12.499999995%"'."><input type=\"checkbox\" name=\"edit[]\" value=\"".$row['id']."\"></td>\r\n";
                 echo "</tr>\r\n";
             }
         }

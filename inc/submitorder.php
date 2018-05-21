@@ -31,6 +31,7 @@ require_once 'header.php';
     // Create a string to display the contents of flavour[] array
     $selectionString = "";
     // If flavours were selected
+    /*
     if ($flavours !== "") {
         // Loop through the flavour[] array
         foreach ($flavours as $choice) {
@@ -54,6 +55,7 @@ require_once 'header.php';
         // No flavours were selected
         $errors .= '<div class="alert alert-warning" role="alert">No flavours were selected.'."</div>\r\n";
     }
+    
     // prevent sql injection
     $selectionString  = mysqli_real_escape_string($conn, $selectionString);
     // change chars from html to equiv
@@ -63,6 +65,7 @@ require_once 'header.php';
     if (str_word_count($selectionString) < $orderQty) {
         $errors .= '<div class="alert alert-warning" role="alert">Did you select all '.$orderQty.' flavours?'."</div>\r\n";
     }
+    */
     // Continue if error message is still empty
     if ($errors == "") {
         // store query

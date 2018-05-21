@@ -70,6 +70,10 @@ require_once 'inc/header.php';
                         <input type="number" class="form-control" id="orderQty" name="orderQty">
                     </td>
                 </tr>
+                <tr>
+                    <th>Address</th>
+                    <td><textarea class="form-control" rows="4" id="address" name="address"></textarea></td>
+                </tr>
             </table>
             <div class="form-row">
                 <div class="col"></div>
@@ -159,7 +163,10 @@ require_once 'inc/header.php';
                 <td class="col-1"></td>
                 <td class="col-1"></td>
                 <td class="col-3"></td>
-                <td style="width: 12.499999995%"><button type="submit" class="btn btn-primary">Fulfilled</button></td>
+                <td class="col">
+                    <button type="submit" name="editorder" class="btn btn-primary">Edit</button>
+                    <button name="markdone" type="submit" class="btn btn-primary">Fulfilled</button>
+                </td>
             </tr>
             </form>
         </table>

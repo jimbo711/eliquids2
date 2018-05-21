@@ -17,6 +17,7 @@ require_once 'inc/header.php';
     $name     = $_GET['name'];
     $username = $_GET['username'];
     $orderQty = $_GET['orderQty'];
+    $address  = $_GET['address'];
     $size     = "";                 // Size is selected via a radio button field in new order form.
     if (isset($_GET['size'])) {     // Only assign input to $size if an option was selected.
         $size = $_GET['size'];      // Neglecting this was allowing a uglier looking error to display.
@@ -27,12 +28,14 @@ require_once 'inc/header.php';
     $username  = mysqli_real_escape_string($conn, $username);
     $size  = mysqli_real_escape_string($conn, $size);
     $orderQty  = mysqli_real_escape_string($conn, $orderQty);
+    $address  = mysqli_real_escape_string($conn, $address);
     // change chars from html to equiv
     $date = htmlspecialchars($date);
     $name = htmlspecialchars($name);
     $username = htmlspecialchars($username);
     $size = htmlspecialchars($size);
     $orderQty = htmlspecialchars($orderQty);
+    $address = htmlspecialchars($address);
     // Create empty error message
     $errors = "";
     // validate name field (only letters, dashes and spaces)
@@ -51,6 +54,9 @@ require_once 'inc/header.php';
     } else if(!is_numeric($orderQty)) {
         $errors .= '<div class="alert alert-warning" role="alert">Invalid order quantity - must be a number.'."</div>\r\n";
     }
+    // validate address
+    //  
+    
     // Check for errors
     if ($errors !== "") {
         // If there are errors. Exit the script here, report errors and link home.
