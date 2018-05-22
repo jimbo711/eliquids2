@@ -17,7 +17,7 @@ require_once 'header.php';
 <div class="container">
     <h1><?php echo $page_title; ?></h1>
     <?php
-    // If user input exists
+    // If mark fulfilled button was clicked
     if (isset($_GET['markdone'])) {
         // Get user input
         $fulfilled  = $_GET['edit'];
@@ -29,16 +29,48 @@ require_once 'header.php';
                 // Store query - set fulfilled column to true where row ID matches selected checkbox value
                 $sql = "UPDATE orders SET fulfilled = 1 WHERE id = '$order'";
                 // Run Query
-                mysqli_query($conn, $sql);
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
                 // Store query - enter current date into 'dispatched' column
                 $date = date("Y-m-d");
                 $sql = "UPDATE orders SET dispatched = '$date' WHERE id = '$order'";
                 // Run Query
-                mysqli_query($conn, $sql);
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                // Store Query - get row from db that matches checked order
+                $sql = "SELECT * FROM orders WHERE id = '$order'";
+                // Store values as array
+                $results = mysqli_query($conn, $sql);
+                // Create an array from values
+                if (mysqli_num_rows($results) > 0) {
+                    // Loop through the array
+                    while ($row = mysqli_fetch_array($results)){
+                        // Store flavour selection as array
+                        $selection = str_getcsv($row['selection']);
+                        // Store order size
+                        $size = $row['size'];
+                        // Loop through the array
+                        foreach ($selection as $choice) {
+                            // Remove whitespace
+                            $choice = trim($choice);
+                            // store query - reduce stock
+                            $sql = "UPDATE madeliquids
+                                    SET qty = qty - '$size'
+                                    WHERE liquidname = '$choice'";
+                            // run query
+                            mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                            // store query - increase number sold
+                            $sql = "UPDATE madeliquids
+                                    SET sold = sold + 1
+                                    WHERE liquidname = '$choice'";
+                            // run query
+                            mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                        }
+                    }
+                }
             }
             // Redirect home
             header('Location: ../index.php');
         }
+    // If edit button was clicked
     } else if (isset($_GET['editorder'])) {
         // Get user input
         $ids = $_GET['edit'];
