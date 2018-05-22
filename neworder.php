@@ -71,6 +71,7 @@ require_once 'inc/header.php';
         $_SESSION['username'] = $username;
         $_SESSION['size']     = $size;
         $_SESSION['orderQty'] = $orderQty;
+        $_SESSION['address']  = $address;
         $_SESSION['goback']   = $_SERVER['REQUEST_URI']; // Current url path
     }
     ?>
@@ -97,6 +98,10 @@ require_once 'inc/header.php';
         <tr>
             <th>Order Quantity:</th>
             <td><?php echo $orderQty; ?></td>
+        </tr>
+        <tr>
+            <th>Shipping Address:</th>
+            <td><?php echo $address; ?></td>
         </tr>
     </table>
 
