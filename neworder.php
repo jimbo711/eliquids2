@@ -108,24 +108,30 @@ require_once 'inc/header.php';
     <div id="flavourSelection">
         <h3>Flavour Selection:</h3>
         <form action="inc/submitorder.php" method="GET">
-        <?php
-        // Create a number of selection fields equal to the order quantity
-        for ($i=0; $i<$orderQty; $i++) {
-            // Populate with flavours from current stock?>
             <div class="form-row">
-                <div class="col-6">
-                    <?php flavourfield("flavour[$i]", $conn); ?>
+                <div class="col">
+                    <input type="checkbox" name="nochoice" value="1" class="mr-2">Not Chosen Yet
                 </div>
                 <div class="col"></div>
             </div>
-        <?php
-        }
-        ?>
-        <div class="form-row">
-            <div class="col-3"><a href="index.php" class="btn btn-danger btn-block" role="button">Cancel</a></div>
-            <div class="col-3"><button type="submit" class="btn btn-primary btn-block">Confirm</button></div>
-            <div class="col"></div>
-        </div>
+            <?php
+            // Create a number of selection fields equal to the order quantity
+            for ($i=0; $i<$orderQty; $i++) {
+                // Populate with flavours from current stock?>
+                <div class="form-row">
+                    <div class="col-6">
+                        <?php flavourfield("flavour[$i]", $conn); ?>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            <?php
+            }
+            ?>
+            <div class="form-row">
+                <div class="col-3"><a href="index.php" class="btn btn-danger btn-block" role="button">Cancel</a></div>
+                <div class="col-3"><button type="submit" class="btn btn-primary btn-block">Confirm</button></div>
+                <div class="col"></div>
+            </div>
         </form>
     </div>
 </div>
