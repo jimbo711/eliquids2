@@ -66,12 +66,20 @@ require_once 'header.php';
     // Continue if error message is still empty
     if ($errors == "") {
         // store query
+        // Update db table columns with data from from
         $sql = 
-            // insert inputs for new order into orders table
-            "INSERT INTO orders (`date`, `name`, `username`, `size`, `orderqty`, `selection`, `address`) 
-            VALUES ('$date', '$name', '$username', '$size', '$orderQty', '$selectionString', '$address')";
+            "UPDATE orders SET 
+            `date` = '$date', 
+            `name` = '$name', 
+            `username` = '$username', 
+            `size` = '$size', 
+            `orderqty` = '$orderQty', 
+            `selection` = '$selectionString', 
+            `address` = '$address' 
+            WHERE `id` = $rowid;";
         // Run Query
         if (mysqli_query($conn, $sql)) {
+            // Redirect home
             echo header('Location: ../index.php');
         } else {
             echo "Error updating record: " . mysqli_error($conn);
