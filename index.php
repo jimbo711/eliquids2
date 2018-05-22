@@ -143,7 +143,7 @@ require_once 'inc/header.php';
     <div id="unfulfilled" class="row">
         <h2>Unfulfilled Orders</h2>
         <table id="unfulfilled-table" class="table table-striped col-12">
-            <form action="inc/markfulfilled.php" method="GET">
+            <form action="inc/markfulfilled.php" name="unfulfilledorders" method="GET">
             <thead>
                 <tr class="row">
                     <th style="width: 12.499999995%">Date</th>
@@ -156,14 +156,14 @@ require_once 'inc/header.php';
                 </tr>
             </thead>
             <?php unfulfilled_orders($conn); ?>
-            <tr class="row">
-                <td style="width: 12.499999995%"></td>
-                <td class="col-2"></td>
-                <td class="col"></td>
-                <td class="col-1"></td>
-                <td class="col-1"></td>
-                <td class="col-3"></td>
+            <tr>
+                
+            </tr>
+            <tr class="row justify-content-end">
+                <td class="col-7 col-md-8 col-lg-9"></td>
                 <td class="col">
+                    Select All
+                    <input type="checkbox" name="checkall" class="mx-2" onClick="checkAll('edit');">
                     <button type="submit" name="editorder" class="btn btn-primary">Edit</button>
                     <button name="markdone" type="submit" class="btn btn-primary">Fulfilled</button>
                 </td>

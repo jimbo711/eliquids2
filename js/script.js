@@ -61,7 +61,23 @@ function validateAddFlv() {
     }
     
 }
+/*
+    Toggle all checkboxes in unfulfilled orders table
+*/
+function checkAll(checkId){
+    var inputs = document.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) { 
+        if (inputs[i].type == "checkbox" && inputs[i].id == checkId) { 
+            if(inputs[i].checked == true) {
+                inputs[i].checked = false ;
+            } else if (inputs[i].checked == false ) {
+                inputs[i].checked = true ;
+            }
+        }  
+    }  
+}/*
 
+*/
 // Validate New Order form on submit
 function validateOrder() {
     
