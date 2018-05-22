@@ -156,9 +156,6 @@ require_once 'inc/header.php';
                 </tr>
             </thead>
             <?php unfulfilled_orders($conn); ?>
-            <tr>
-                
-            </tr>
             <tr class="row justify-content-end">
                 <td class="col-7 col-md-8 col-lg-9"></td>
                 <td class="col">
