@@ -162,7 +162,9 @@ require_once 'inc/header.php';
             </thead>
             <?php unfulfilled_orders($conn); ?>
             <tr class="row justify-content-end">
-                <td class="col-7 col-md-8 col-lg-9"></td>
+                <td class="col-7 col-md-8 col-lg-9">
+                    <button type="submit" name="remove" class="btn btn-danger">Remove</button>
+                </td>
                 <td class="col">
                     Select All
                     <input type="checkbox" name="checkall" class="mx-2" onClick="checkAll('edit');">

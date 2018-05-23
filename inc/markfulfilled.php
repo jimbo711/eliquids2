@@ -20,7 +20,7 @@ require_once 'header.php';
     // If mark fulfilled button was clicked
     if (isset($_GET['markdone'])) {
         // Get user input
-        $fulfilled  = $_GET['edit'];
+        $fulfilled = $_GET['edit'];
         // Check at least one box was checked
         if (count($fulfilled) > 0) {
             // Loop through array of checked boxes
@@ -52,20 +52,32 @@ require_once 'header.php';
                             // Remove whitespace
                             $choice = trim($choice);
                             // store query - reduce stock
-                            $sql = "UPDATE madeliquids
-                                    SET qty = qty - '$size'
-                                    WHERE liquidname = '$choice'";
+                            $sql = "UPDATE madeliquids SET qty = qty - '$size' WHERE liquidname = '$choice'";
                             // run query
                             mysqli_query($conn, $sql) or die(mysqli_error($conn));
                             // store query - increase number sold
-                            $sql = "UPDATE madeliquids
-                                    SET sold = sold + 1
-                                    WHERE liquidname = '$choice'";
+                            $sql = "UPDATE madeliquids SET sold = sold + 1 WHERE liquidname = '$choice'";
                             // run query
                             mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         }
                     }
                 }
+            }
+            // Redirect home
+            header('Location: ../index.php');
+        }
+    // If remove button was clicked
+    } else if (isset($_GET['remove'])) {
+        // Get user input
+        $selection = $_GET['edit'];
+        // If at least one box was checked
+        if (count($selection) > 0) {
+            // Loop through array of checked boxes
+            foreach ($selection as $id){
+                // Store query
+                $sql = "DELETE FROM orders WHERE id = '$id'";
+                // Run query
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
             }
             // Redirect home
             header('Location: ../index.php');
