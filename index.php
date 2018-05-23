@@ -97,7 +97,7 @@ require_once 'inc/header.php';
             <div class="form-row">
                 <div class="col"></div>
                 <div class="col-5">
-                    <button class="btn btn-primary btn-block" type="submit">Add</button>
+                    <button class="btn btn-outline-primary btn-block" type="submit">Add</button>
                 </div>
             </div>
             </form>
@@ -115,7 +115,7 @@ require_once 'inc/header.php';
             <div class="form-row">
                 <div class="col"></div>
                 <div class="col-5">
-                    <button class="btn btn-danger btn-block" type="submit">Remove</button>
+                    <button class="btn btn-outline-danger btn-block" type="submit">Remove</button>
                 </div>
             </div>
             </form>
@@ -132,13 +132,13 @@ require_once 'inc/header.php';
             </div>
             <div class="form-row">
                 <div class="col-4">
-                    <button class="btn btn-success btn-block" type="submit" name="increase">Increase</button>
+                    <button class="btn btn-outline-success btn-block" type="submit" name="increase">Increase</button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-danger btn-block" type="submit" name="decrease">Decrease</button>
+                    <button class="btn btn-outline-danger btn-block" type="submit" name="decrease">Decrease</button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-primary btn-block" type="submit" name="newqty">New Qty</button>
+                    <button class="btn btn-outline-primary btn-block" type="submit" name="newqty">New Qty</button>
                 </div>
             </div>              
             </form>
@@ -157,19 +157,18 @@ require_once 'inc/header.php';
                     <th class="col-1">Size</th>
                     <th class="col-1">Qty</th>
                     <th class="col-3">Selection</th>
-                    <th style="width: 12.499999995%">Done</th>
+                    <th style="width: 12.499999995%"></th>
                 </tr>
             </thead>
             <?php unfulfilled_orders($conn); ?>
             <tr class="row justify-content-end">
-                <td class="col-7 col-md-8 col-lg-9">
-                    <button type="submit" name="remove" class="btn btn-danger">Remove</button>
-                </td>
                 <td class="col">
-                    Select All
-                    <input type="checkbox" name="checkall" class="mx-2" onClick="checkAll('edit');">
-                    <button type="submit" name="editorder" class="btn btn-primary">Edit</button>
-                    <button name="markdone" type="submit" class="btn btn-primary">Fulfilled</button>
+                    <button type="submit" name="remove" class="btn btn-outline-danger">Remove</button>
+                </td>
+                <td class="col" style="text-align:right">
+                    <button name="markdone" type="submit" class="btn btn-outline-primary mr-2">Mark Fulfilled</button>
+                    <button type="submit" name="editorder" class="btn btn-outline-primary mr-2">View/Edit</button>
+                    <button type="button" name="checkall" class="btn btn-outline-secondary" onClick="checkAll('edit');">Select All</button>
                 </td>
             </tr>
             </form>
