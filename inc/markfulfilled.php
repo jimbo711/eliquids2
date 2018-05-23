@@ -151,7 +151,12 @@ require_once 'header.php';
                                         <th>Address</th>
                                         <td>
                                             <div class="input-group">
-                                                <textarea class="form-control" rows="4" id="address" name="address"><?php echo $row['name']."\r\n".str_replace(", ","\r\n",$row['address']); ?></textarea>
+                                                <textarea class="form-control" rows="4" id="address" name="address"><?php 
+                                                    $address = $row['address'];
+                                                    if ($address !== "") {
+                                                        echo $row['name']."\r\n".str_replace(", ","\r\n",$address);
+                                                    }
+                                                ?></textarea>
                                                 <div class="input-group-append">
                                                     <button id="copyaddress" type="button" class="btn btn-outline-secondary" onclick="autocopy('address', 'copyaddress')">
                                                         Copy
