@@ -121,13 +121,13 @@ require_once 'inc/header.php';
             </form>
 
             <h4>Update Quantity</h4>
-            <form action="inc/editrow.php" method="GET">
+            <form action="inc/editqty.php" method="GET">
             <div class="form-row">
                 <div class="col-7">
                     <?php flavourfield("name", $conn); ?>
                 </div>
                 <div class="col-5">
-                    <input type="text" name="newQty" class="form-control"  placeholder="mL">
+                    <input type="text" name="editqty" class="form-control"  placeholder="mL">
                 </div>
             </div>
             <div class="form-row">

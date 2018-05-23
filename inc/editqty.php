@@ -16,7 +16,7 @@ require_once 'header.php';
     if (isset($_GET['name'])) {
         $name = $_GET['name'];
     }
-    $newQty = $_GET['newQty'];
+    $newQty = $_GET['editqty'];
     // Create empty error message
     $errors = "";
     // validate name field (only letters, dashes and spaces)
@@ -29,15 +29,34 @@ require_once 'header.php';
     }
     // Continue if error message is still empty
     if ($errors == "") {
-        // Store query
-        $sql = "UPDATE madeliquids
-                SET qty='$newQty' 
-                WHERE liquidname='$name'";
-        // Run Query
-        if (mysqli_query($conn, $sql)) {
-            header('Location: ../index.php');
+        if (isset($_GET['increase'])) {
+        //  if 'Increase' was clicked
+            $inc = $newQty;
+            $sql = "UPDATE madeliquids SET qty = qty + $inc WHERE liquidname='$name'";
+            if (mysqli_query($conn, $sql)) {
+                header('Location: ../index.php');
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            }
+        } else if (isset($_GET['decrease'])) {
+        //  if 'Decrease' was clicked
+            $inc = $newQty;
+            $sql = "UPDATE madeliquids SET qty = qty - $inc WHERE liquidname='$name'";
+            if (mysqli_query($conn, $sql)) {
+                header('Location: ../index.php');
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            }
         } else {
-            echo "Error updating record: " . mysqli_error($conn);
+        //  'New Qty' was clicked
+            // Store query
+            $sql = "UPDATE madeliquids SET qty = $newQty WHERE liquidname='$name'";
+            // Run Query
+            if (mysqli_query($conn, $sql)) {
+                header('Location: ../index.php');
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
+            }
         }
     } else {
         // Else (there were errors), report and link home
