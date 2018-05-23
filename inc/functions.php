@@ -13,12 +13,20 @@ function current_stock($conn) {
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
         // $row = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-        while($row = mysqli_fetch_array($results)){ 
+        while($row = mysqli_fetch_array($results)){
+            $qty = $row['qty'];
+            $id  = $row['id']; 
+            // if qty of liquid is less than 0, make it 0
+            if ($qty < 0) {
+                $sql = "UPDATE madeliquids SET qty=0 WHERE id='$id';";
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                $qty = 0;
+            }
             // each iterration, create a html table row and fill it with db row data
             echo "<tr".'scope="row"'.">
-                      <td>".$row['id']."</td>
+                      <td>".$id."</td>
                       <td>".$row['liquidname']."</td>
-                      <td>".$row['qty']."</td>
+                      <td>".$qty."</td>
                       <td>".$row['sold']."</td></tr>\r\n";
         }
     } else {
