@@ -128,7 +128,9 @@ require_once 'header.php';
                                     </tr>
                                     <tr>
                                         <th>Address</th>
-                                        <td><textarea class="form-control" rows="4" id="address" name="address"><?php echo $row['address']; ?></textarea></td>
+                                        <td>
+                                            <textarea class="form-control" rows="4" id="address" name="address"><?php echo str_replace(", ","\r\n",$row['address']); ?></textarea>
+                                        </td>
                                     </tr>
                                     <tr class="d-none">
                                         <th>Row ID</th>
