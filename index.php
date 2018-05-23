@@ -72,7 +72,7 @@ require_once 'inc/header.php';
                 </tr>
                 <tr>
                     <th>Address</th>
-                    <td><textarea class="form-control" rows="4" id="address" name="address"></textarea></td>
+                    <td><textarea class="form-control" rows="4" id="address" name="address" placeholder="Seperate lines with a comma followed by a space"></textarea></td>
                 </tr>
             </table>
             <div class="form-row">
@@ -84,7 +84,7 @@ require_once 'inc/header.php';
             </form>
         </div><!-- /col -->
         <div class="col-sm">
-            <h3>Add Flavour</h3>
+            <h4>New Flavour</h4>
             <form class="form" action="inc/addrow.php" onsubmit="return validateAddFlv()" method="GET">
             <div class="form-row">
                 <div class="col">
@@ -102,7 +102,7 @@ require_once 'inc/header.php';
             </div>
             </form>
         
-            <h3>Remove Flavour</h3>
+            <h4>Remove Flavour</h4>
             <form action="inc/delrow.php" onsubmit="return validateDelRow()" method="GET">
             <div class="form-row">
                 <div class="col">
@@ -120,20 +120,25 @@ require_once 'inc/header.php';
             </div>
             </form>
 
-            <h3>Update Quantity</h3>
+            <h4>Update Quantity</h4>
             <form action="inc/editrow.php" method="GET">
             <div class="form-row">
                 <div class="col-7">
                     <?php flavourfield("name", $conn); ?>
                 </div>
                 <div class="col-5">
-                    <input type="text" name="newQty" class="form-control"  placeholder="New Qty">
+                    <input type="text" name="newQty" class="form-control"  placeholder="mL">
                 </div>
             </div>
             <div class="form-row">
-                <div class="col"></div>
-                <div class="col-5">
-                    <button class="btn btn-primary btn-block" type="submit">Update</button>
+                <div class="col-4">
+                    <button class="btn btn-success btn-block" type="submit" name="increase">Increase</button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-danger btn-block" type="submit" name="decrease">Decrease</button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-primary btn-block" type="submit" name="newqty">New Qty</button>
                 </div>
             </div>              
             </form>
