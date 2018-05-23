@@ -75,27 +75,23 @@ function checkAll(checkId){
             }
         }  
     }  
-}/*
-
+}
+/*
+    Validate New Order form on submit
 */
-// Validate New Order form on submit
 function validateOrder() {
-    
     //    New Error Msg     //
     var errors = "";
-
     //    Check Name    //
     var name = document.getElementById('name').value;
     if (name == "" || name.length < 2) {
         errors += "Invalid Name.\n";
     }
-
     //    Check Username    //
     var username = document.getElementById('username').value;
     if (username == "" || username.length < 2) {
         errors += "Invalid Username.\n";
     }
-
     //    Check Size    //
     var size = "";
     var sizebtn = document.getElementsByName('size');
@@ -109,14 +105,11 @@ function validateOrder() {
     if (size==0 || size=="" || isNaN(size)) {
         errors += "Size not selected.\n";
     }
-
     //    Check Qty    //
     var orderQty = document.getElementById('orderQty').value;
     if (orderQty == "" || orderQty.length < 1 || orderQty < 1 || isNaN(orderQty)) {
         errors += "Invalid Quantity.\n";
     }
-
-
     // Check for errors
     if (errors !== "") {
         // Display error message

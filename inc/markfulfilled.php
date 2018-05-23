@@ -86,7 +86,7 @@ require_once 'header.php';
                         ?>
                         <div class="row">
                             <div class="col">
-                                <form action="submitchange.php" class= onsubmit="return validateOrder()" method="GET">
+                                <form action="submitchange.php" method="GET">
                                     <table class="table">
                                     <tr>
                                         <th>Date</th>
@@ -94,7 +94,16 @@ require_once 'header.php';
                                     </tr>
                                     <tr>
                                         <th>Name</th>
-                                        <td><input type="text" class="form-control" id="name" name="name" value="<?php echo $row['name']; ?>"></td>
+                                        <td>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="name" name="name" value="<?php echo $row['name']; ?>">
+                                                <div class="input-group-append">
+                                                    <button id="copyname" type="button" class="btn btn-outline-secondary" onclick="autocopy('name', 'copyname')">
+                                                        Copy
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Username</th>
@@ -129,7 +138,14 @@ require_once 'header.php';
                                     <tr>
                                         <th>Address</th>
                                         <td>
-                                            <textarea class="form-control" rows="4" id="address" name="address"><?php echo str_replace(", ","\r\n",$row['address']); ?></textarea>
+                                            <div class="input-group">
+                                                <textarea class="form-control" rows="4" id="address" name="address"><?php echo str_replace(", ","\r\n",$row['address']); ?></textarea>
+                                                <div class="input-group-append">
+                                                    <button id="copyaddress" type="button" class="btn btn-outline-secondary" onclick="autocopy('address', 'copyaddress')">
+                                                        Copy
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr class="d-none">
@@ -139,10 +155,8 @@ require_once 'header.php';
                                     <?php
                                     // Quantity of the order
                                     $orderQty = $row['orderqty'];
-
                                     // Get flavour selections and put in array
                                     $selection = str_getcsv($row['selection']);
-                                    
                                     // If there are less flavour selections in db than ordered
                                     if (count($selection) < $orderQty) {
                                         // if there are 3 orders, loop 3 times
@@ -216,6 +230,35 @@ require_once 'header.php';
     }
     ?>
 </div>
+<script>//<!--
+/*
+
+    Copy text to clipboard on button press
+        change color of button afterwards
+
+*/
+// Changes button color - called in autocopy();
+function changecolor(btnId) {
+    // Find button
+    var element = document.getElementById(btnId);
+    // Remove class
+    element.classList.remove("btn-outline-secondary");
+    // Add class
+    element.classList.add("btn-outline");
+    element.classList.add("bg-success");
+}
+// Copies text to clipboard
+function autocopy(inputId, btnId) {
+    // Get user input
+    var text = document.getElementById(inputId);
+    // Select text
+    text.select();
+    // Copy to clipboard
+    document.execCommand("copy");
+    // Change button color
+    changecolor(btnId);
+} // -->
+</script>
 <?php
 // Page footer
 include_once 'footer.php';
