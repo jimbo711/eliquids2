@@ -151,16 +151,16 @@ require_once 'header.php';
                                         <th>Address</th>
                                         <td>
                                             <div class="input-group">
-                                                <textarea class="form-control" rows="4" id="address" name="address"><?php 
+                                                <textarea class="form-control" rows="4" id="address<?php echo $rowid ?>" name="address"><?php 
                                                     $address = $row['address'];
                                                     if ($address !== "") {
                                                         echo $row['name']."\r\n".str_replace(", ","\r\n",$address);
                                                     }
                                                 ?></textarea>
                                                 <div class="input-group-append">
-                                                    <button id="copyaddress" type="button" class="btn btn-outline-secondary" onclick="autocopy('address', 'copyaddress')">
+                                                    <button id="copyaddress<?php echo $rowid ?>" type="button" class="btn btn-outline-secondary" onclick="autocopy('address<?php echo $rowid ?>', 'copyaddress<?php echo $rowid ?>')">
                                                         Copy
-                                                    </button>
+                                                    </button>                                                    
                                                 </div>
                                             </div>
                                         </td>
