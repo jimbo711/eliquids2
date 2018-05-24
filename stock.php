@@ -1,0 +1,101 @@
+<?php
+// If user is not logged in, redirect to login page.
+if (!isset($_COOKIE['login'])) {
+    header('Location: login.php');
+}
+// Connect to DB
+require_once 'inc/connect.php';
+// PHP functions
+require_once 'inc/functions.php';
+// Assign page title
+$page_title = "New Order";
+// Page header
+require_once 'inc/header.php';
+?>
+<div class="container">
+
+    <div id="stock" class="row">
+        <h1>Current Stock</h1>
+        <table class="table table-striped border-bottom">
+            <thead class="thead">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php current_stock($conn); ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-lg-4">
+            <h4>New Flavour</h4>
+            <form class="form" action="inc/editmadeliquids.php" onsubmit="return validateAddFlv()" method="GET">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" id="addFlavourName" class="form-control" name="name" placeholder="Name">
+                </div>
+                <div class="col-5">
+                    <input type="text" id="addFlavourQty" class="form-control" name="qty" placeholder="Qty">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col"></div>
+                <div class="col-5">
+                    <button class="btn btn-outline-primary btn-block" name="addflv-btn" type="submit">Add</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="col-6 col-lg-4">
+            <h4>Remove Flavour</h4>
+            <form action="inc/editmadeliquids.php" onsubmit="return validateDelRow()" method="GET">
+            <div class="form-row">
+                <div class="col">
+                    <label>Select Row ID: </label>
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control" id="delrowid" name="rowID">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col"></div>
+                <div class="col-5">
+                    <button class="btn btn-outline-danger btn-block" name="delflv-btn" type="submit">Remove</button>
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <div class="col-lg-4">
+            <h4>Update Quantity</h4>
+            <form action="inc/editmadeliquids.php" method="GET">
+            <div class="form-row">
+                <div class="col-7">
+                    <?php flavourfield("name", $conn); ?>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="editqty" class="form-control"  placeholder="mL">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-4">
+                    <button class="btn btn-outline-success btn-block" type="submit" name="increase-btn">Increase</button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-outline-danger btn-block" type="submit" name="decrease-btn">Decrease</button>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-outline-primary btn-block" type="submit" name="newqty-btn">New Qty</button>
+                </div>
+            </div>              
+            </form>
+        </div>
+    </div>
+
+</div><!-- /#container -->
+<?php include_once 'inc/footer.php'; ?>
