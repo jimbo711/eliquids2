@@ -154,7 +154,8 @@ require_once 'header.php';
                                                 <textarea class="form-control" rows="4" id="address<?php echo $rowid ?>" name="address"><?php 
                                                     $address = $row['address'];
                                                     if ($address !== "") {
-                                                        echo $row['name']."\r\n".str_replace(", ","\r\n",$address);
+                                                        // Display name followed by address, find and replace ", " with line break.
+                                                        echo $row['name']."\r\n".trim(str_replace(", ","\r\n",$address));
                                                     }
                                                 ?></textarea>
                                                 <div class="input-group-append">
