@@ -176,7 +176,7 @@ function breakdown($conn) {
         }
         // Turn string into array
         $flavours = str_getcsv($flavours);
-        // Trim the elements
+        // Trim the whitespace
         $flavours = array_map('trim',$flavours);
         // Count duplicates in array
         $flavours = array_count_values($flavours);
