@@ -8,7 +8,7 @@ require_once 'inc/connect.php';
 // PHP functions
 require_once 'inc/functions.php';
 // Assign page title
-$page_title = "New Order";
+$page_title = "Stock";
 // Page header
 require_once 'inc/header.php';
 ?>

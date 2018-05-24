@@ -98,23 +98,5 @@ require_once 'inc/header.php';
         </table>
     </div><!-- /row -->
 
-    <div id="fulfilled" class="row">
-        <h2>Fulfilled Orders</h2>
-        <table id="fulfilled-table" class="table table-striped border-bottom col-12">
-            <thead>
-                <tr class="row">
-                    <th style="width: 12.499999995%">Date</th>
-                    <th class="col-2">Name</th>
-                    <th class="col">Username</th>
-                    <th class="col-1">Size</th>
-                    <th class="col-1">Qty</th>
-                    <th class="col-3">Selection</th>
-                    <th style="width: 12.499999995%">Dispatched</th>
-                </tr>
-            </thead>
-            <?php fulfilled_orders($conn); ?>
-        </table>
-    </div><!-- /row -->
-
 </div><!-- /#container -->
 <?php include_once 'inc/footer.php'; ?>

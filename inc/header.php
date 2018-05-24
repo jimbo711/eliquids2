@@ -37,16 +37,13 @@ if (!isset($path_home)) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#stock">Stock</a>
+                        <a class="nav-link" href="<?php echo $path_home; ?>index.php">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#neworder">New Order</a>
+                        <a class="nav-link" href="<?php echo $path_home; ?>stock.php">Stock</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#unfulfilled">Unfulfilled</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#fulfilled">Fulfilled</a>
+                        <a class="nav-link" href="<?php echo $path_home; ?>history.php">History</a>
                     </li>
                 </ul>
             </div>
