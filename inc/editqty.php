@@ -29,7 +29,7 @@ require_once 'header.php';
     }
     // Continue if error message is still empty
     if ($errors == "") {
-        if (isset($_GET['increase'])) {
+        if (isset($_GET['increase-btn'])) {
         //  if 'Increase' was clicked
             $inc = $newQty;
             $sql = "UPDATE madeliquids SET qty = qty + $inc WHERE liquidname='$name'";
@@ -38,7 +38,7 @@ require_once 'header.php';
             } else {
                 echo "Error updating record: " . mysqli_error($conn);
             }
-        } else if (isset($_GET['decrease'])) {
+        } else if (isset($_GET['decrease-btn'])) {
         //  if 'Decrease' was clicked
             $inc = $newQty;
             $sql = "UPDATE madeliquids SET qty = qty - $inc WHERE liquidname='$name'";

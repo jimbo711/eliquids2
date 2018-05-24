@@ -85,7 +85,7 @@ require_once 'inc/header.php';
         </div><!-- /col -->
         <div class="col-sm">
             <h4>New Flavour</h4>
-            <form class="form" action="inc/addrow.php" onsubmit="return validateAddFlv()" method="GET">
+            <form class="form" action="inc/editmadeliquids.php" onsubmit="return validateAddFlv()" method="GET">
             <div class="form-row">
                 <div class="col">
                     <input type="text" id="addFlavourName" class="form-control" name="name" placeholder="Name">
@@ -97,13 +97,13 @@ require_once 'inc/header.php';
             <div class="form-row">
                 <div class="col"></div>
                 <div class="col-5">
-                    <button class="btn btn-outline-primary btn-block" type="submit">Add</button>
+                    <button class="btn btn-outline-primary btn-block" name="addflv-btn" type="submit">Add</button>
                 </div>
             </div>
             </form>
         
             <h4>Remove Flavour</h4>
-            <form action="inc/delrow.php" onsubmit="return validateDelRow()" method="GET">
+            <form action="inc/editmadeliquids.php" onsubmit="return validateDelRow()" method="GET">
             <div class="form-row">
                 <div class="col">
                     <label>Select Row ID: </label>
@@ -115,13 +115,13 @@ require_once 'inc/header.php';
             <div class="form-row">
                 <div class="col"></div>
                 <div class="col-5">
-                    <button class="btn btn-outline-danger btn-block" type="submit">Remove</button>
+                    <button class="btn btn-outline-danger btn-block" name="delflv-btn" type="submit">Remove</button>
                 </div>
             </div>
             </form>
 
             <h4>Update Quantity</h4>
-            <form action="inc/editqty.php" method="GET">
+            <form action="inc/editmadeliquids.php" method="GET">
             <div class="form-row">
                 <div class="col-7">
                     <?php flavourfield("name", $conn); ?>
@@ -132,13 +132,13 @@ require_once 'inc/header.php';
             </div>
             <div class="form-row">
                 <div class="col-4">
-                    <button class="btn btn-outline-success btn-block" type="submit" name="increase">Increase</button>
+                    <button class="btn btn-outline-success btn-block" type="submit" name="increase-btn">Increase</button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-outline-danger btn-block" type="submit" name="decrease">Decrease</button>
+                    <button class="btn btn-outline-danger btn-block" type="submit" name="decrease-btn">Decrease</button>
                 </div>
                 <div class="col-4">
-                    <button class="btn btn-outline-primary btn-block" type="submit" name="newqty">New Qty</button>
+                    <button class="btn btn-outline-primary btn-block" type="submit" name="newqty-btn">New Qty</button>
                 </div>
             </div>              
             </form>

@@ -37,7 +37,6 @@ require_once 'header.php';
         echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
     }
     ?>
-    </div>
 </div>
 <?php
 // Page footer

@@ -1,7 +1,7 @@
 /*
 
-    # Called on submission of the 'new order' form, 
-    the validateOrder function checks for valid user inputs and cancels 
+    # Called on submission of the 'edit madeliqids' form, 
+    the validLiquidEdit function checks for valid user inputs and cancels 
     submission if it finds errors.
 
 */
@@ -77,7 +77,11 @@ function checkAll(checkId){
     }  
 }
 /*
-    Validate New Order form on submit
+
+    # Called on submission of the 'new order' form, 
+    the validateOrder function checks for valid user inputs and cancels 
+    submission if it finds errors.
+
 */
 function validateOrder() {
     //    New Error Msg     //
