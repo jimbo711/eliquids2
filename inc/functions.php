@@ -145,4 +145,52 @@ function unfulfilled_orders($conn) {
         echo "No results";
     }
 }
+/***************************************
+
+    Create and populate rows of 'breakdown' html table
+        with processed data from 'orders' db table.
+
+    - $conn is passed in and is used as the databse connection.
+
+***************************************/
+function breakdown($conn) {
+    // This string will hold all the flavour selections
+    $flavours = "";
+    // Query all unfulfilled orders
+    $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0") or die(mysqli_error($conn));
+    // if one or more rows are returned
+    if(mysqli_num_rows($results) > 0){
+        // loop through returned rows
+        while($row = mysqli_fetch_array($results)){
+            // Get selection
+            $selection = $row['selection'];
+            // Append flavour list
+            if ($selection !== "") {
+                // add a comma if needed
+                if ($flavours == "") {
+                    $flavours .= $selection;
+                } else {
+                    $flavours .= ", ".$selection;
+                }
+            }
+        }
+        // Turn string into array
+        $flavours = str_getcsv($flavours);
+        // Trim the elements
+        $flavours = array_map('trim',$flavours);
+        // Count duplicates in array
+        $flavours = array_count_values($flavours);
+        // Loop through array
+        foreach ($flavours as $name=>$count) {
+            // Build table row for eah flavour
+            echo '<tr>'."\r\n";
+            echo '<td>'.$name.'</td>'."\r\n";
+            echo '<td>'.$count.'</td>'."\r\n";
+            echo '<td>'./* Size */'</td>'."\r\n";
+            echo '</tr>'."\r\n";
+        }
+    } else {
+        echo "No results";
+    }
+}
 ?>

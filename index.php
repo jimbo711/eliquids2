@@ -13,8 +13,8 @@ require_once 'inc/header.php';
 
 <div class="container">
     
-    <div id="neworder" class="row">
-        <div class="col">
+    <div class="row">
+        <div id="neworder" class="col">
             <h2>New Order</h2>    
             <table class="table">
                 <form action="neworder.php" onsubmit="return validateOrder()" method="GET">
@@ -66,6 +66,21 @@ require_once 'inc/header.php';
             </div>
             </form>
         </div><!-- /col -->
+        <div class="col">
+            <h2>Breakdown</h2>
+            <table class="table border-bottom">
+                <thead>
+                    <tr>
+                        <th scope="col">Flavour</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php breakdown($conn); ?>
+                </tbody>
+            </table>
+        </div>
     </div><!-- /row -->
     <hr>
     <div id="unfulfilled" class="row">
