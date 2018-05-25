@@ -12,7 +12,6 @@ require_once 'inc/header.php';
 ?>
 
 <div class="container">
-    
     <div class="row">
         <div id="neworder" class="col">
             <h2>New Order</h2>    
