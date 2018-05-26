@@ -156,12 +156,13 @@ function unfulfilled_orders($conn) {
 function breakdown($conn) {
     // This string will hold all the flavour selections
     $flavours = "";
-    // Query all unfulfilled orders
-    $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0") or die(mysqli_error($conn));
+    // Query all unfulfilled orders for 10mL bottles
+    $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0 AND size = 10") or die(mysqli_error($conn));
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
         // loop through returned rows
         while($row = mysqli_fetch_array($results)){
+            $size = 10;
             // Get selection
             $selection = $row['selection'];
             // Append flavour list
@@ -185,12 +186,84 @@ function breakdown($conn) {
             // Build table row for eah flavour
             echo '<tr>'."\r\n";
             echo '<td>'.$name.'</td>'."\r\n";
+            echo '<td>'.$size.'</td>'."\r\n";
             echo '<td>'.$count.'</td>'."\r\n";
-            echo '<td>'./* Size */'</td>'."\r\n";
             echo '</tr>'."\r\n";
         }
-    } else {
-        echo "No results";
+    }
+    // Clear selection
+    $flavours = "";
+    // Query all unfulfilled orders for 10mL bottles
+    $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0 AND size = 15") or die(mysqli_error($conn));
+    // if one or more rows are returned
+    if(mysqli_num_rows($results) > 0){
+        // loop through returned rows
+        while($row = mysqli_fetch_array($results)){
+            $size = 15;
+            // Get selection
+            $selection = $row['selection'];
+            // Append flavour list
+            if ($selection !== "") {
+                // add a comma if needed
+                if ($flavours == "") {
+                    $flavours .= $selection;
+                } else {
+                    $flavours .= ", ".$selection;
+                }
+            }
+        }
+        // Turn string into array
+        $flavours = str_getcsv($flavours);
+        // Trim the whitespace
+        $flavours = array_map('trim',$flavours);
+        // Count duplicates in array
+        $flavours = array_count_values($flavours);
+        // Loop through array
+        foreach ($flavours as $name=>$count) {
+            // Build table row for eah flavour
+            echo '<tr>'."\r\n";
+            echo '<td>'.$name.'</td>'."\r\n";
+            echo '<td>'.$size.'</td>'."\r\n";
+            echo '<td>'.$count.'</td>'."\r\n";
+            echo '</tr>'."\r\n";
+        }
+    }
+    // Clear selection
+    $flavours = "";
+    // Query all unfulfilled orders for 10mL bottles
+    $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0 AND size = 30") or die(mysqli_error($conn));
+    // if one or more rows are returned
+    if(mysqli_num_rows($results) > 0){
+        // loop through returned rows
+        while($row = mysqli_fetch_array($results)){
+            $size = 30;
+            // Get selection
+            $selection = $row['selection'];
+            // Append flavour list
+            if ($selection !== "") {
+                // add a comma if needed
+                if ($flavours == "") {
+                    $flavours .= $selection;
+                } else {
+                    $flavours .= ", ".$selection;
+                }
+            }
+        }
+        // Turn string into array
+        $flavours = str_getcsv($flavours);
+        // Trim the whitespace
+        $flavours = array_map('trim',$flavours);
+        // Count duplicates in array
+        $flavours = array_count_values($flavours);
+        // Loop through array
+        foreach ($flavours as $name=>$count) {
+            // Build table row for eah flavour
+            echo '<tr>'."\r\n";
+            echo '<td>'.$name.'</td>'."\r\n";
+            echo '<td>'.$size.'</td>'."\r\n";
+            echo '<td>'.$count.'</td>'."\r\n";
+            echo '</tr>'."\r\n";
+        }
     }
 }
 ?>
