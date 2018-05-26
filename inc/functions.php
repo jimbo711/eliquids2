@@ -66,9 +66,9 @@ function current_stock($conn) {
             // each iterration, create a html table row and fill it with db row data
             echo "<tr>
                       <td>".$id."</td>
-                      <td>".$name."</td>
-                      <td>".$qty."</td>
-                      <td>".$sold."</td></tr>\r\n";
+                      <td>".$name.'</td>
+                      <td class="text-center">'.$qty.'</td>
+                      <td class="text-center">'.$sold."</td></tr>\r\n";
         }
     } else {
         echo "No results";

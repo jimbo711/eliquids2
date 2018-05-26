@@ -21,8 +21,8 @@ require_once 'inc/header.php';
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Sold</th>
+                    <th scope="col" class="text-center">Qty</th>
+                    <th scope="col" class="text-center">Sold</th>
                 </tr>
             </thead>
             <tbody>
