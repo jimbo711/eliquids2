@@ -71,8 +71,8 @@ require_once 'inc/header.php';
                 <thead>
                     <tr>
                         <th scope="col">Flavour</th>
-                        <th scope="col">Count</th>
-                        <th scope="col">Size</th>
+                        <th scope="col" class="text-center">Size</th>
+                        <th scope="col" class="text-center">Count</th>
                     </tr>
                 </thead>
                 <tbody>

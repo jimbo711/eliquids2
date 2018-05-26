@@ -165,9 +165,9 @@ function breakdown($conn) {
             $size = 10;
             // Get selection
             $selection = $row['selection'];
-            // Append flavour list
+            // If flavour selection isn't blank
             if ($selection !== "") {
-                // add a comma if needed
+                // Append flavour list, add a comma if needed
                 if ($flavours == "") {
                     $flavours .= $selection;
                 } else {
@@ -175,25 +175,27 @@ function breakdown($conn) {
                 }
             }
         }
-        // Turn string into array
-        $flavours = str_getcsv($flavours);
-        // Trim the whitespace
-        $flavours = array_map('trim',$flavours);
-        // Count duplicates in array
-        $flavours = array_count_values($flavours);
-        // Loop through array
-        foreach ($flavours as $name=>$count) {
-            // Build table row for eah flavour
-            echo '<tr>'."\r\n";
-            echo '<td>'.$name.'</td>'."\r\n";
-            echo '<td>'.$size.'</td>'."\r\n";
-            echo '<td>'.$count.'</td>'."\r\n";
-            echo '</tr>'."\r\n";
+        if ($flavours !== "") {
+            // Turn string into array
+            $flavours = str_getcsv($flavours);
+            // Trim the whitespace
+            $flavours = array_map('trim',$flavours);
+            // Count duplicates in array
+            $flavours = array_count_values($flavours);
+            // Loop through array
+            foreach ($flavours as $name=>$count) {
+                // Build table row for eah flavour
+                echo '<tr>'."\r\n";
+                echo '<td>'.$name.'</td>'."\r\n";
+                echo '<td class="text-center">'.$size.'</td>'."\r\n";
+                echo '<td class="text-center">'.$count.'</td>'."\r\n";
+                echo '</tr>'."\r\n";
+            }
         }
     }
     // Clear selection
     $flavours = "";
-    // Query all unfulfilled orders for 10mL bottles
+    // Query all unfulfilled orders for 15mL bottles
     $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0 AND size = 15") or die(mysqli_error($conn));
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
@@ -202,9 +204,9 @@ function breakdown($conn) {
             $size = 15;
             // Get selection
             $selection = $row['selection'];
-            // Append flavour list
+            // If flavour selection isn't blank
             if ($selection !== "") {
-                // add a comma if needed
+                // Append flavour list, add a comma if needed
                 if ($flavours == "") {
                     $flavours .= $selection;
                 } else {
@@ -212,25 +214,27 @@ function breakdown($conn) {
                 }
             }
         }
-        // Turn string into array
-        $flavours = str_getcsv($flavours);
-        // Trim the whitespace
-        $flavours = array_map('trim',$flavours);
-        // Count duplicates in array
-        $flavours = array_count_values($flavours);
-        // Loop through array
-        foreach ($flavours as $name=>$count) {
-            // Build table row for eah flavour
-            echo '<tr>'."\r\n";
-            echo '<td>'.$name.'</td>'."\r\n";
-            echo '<td>'.$size.'</td>'."\r\n";
-            echo '<td>'.$count.'</td>'."\r\n";
-            echo '</tr>'."\r\n";
+        if ($flavours !== "") {
+            // Turn string into array
+            $flavours = str_getcsv($flavours);
+            // Trim the whitespace
+            $flavours = array_map('trim',$flavours);
+            // Count duplicates in array
+            $flavours = array_count_values($flavours);
+            // Loop through array
+            foreach ($flavours as $name=>$count) {
+                // Build table row for eah flavour
+                echo '<tr>'."\r\n";
+                echo '<td>'.$name.'</td>'."\r\n";
+                echo '<td class="text-center">'.$size.'</td>'."\r\n";
+                echo '<td class="text-center">'.$count.'</td>'."\r\n";
+                echo '</tr>'."\r\n";
+            }
         }
     }
     // Clear selection
     $flavours = "";
-    // Query all unfulfilled orders for 10mL bottles
+    // Query all unfulfilled orders for 30mL bottles
     $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0 AND size = 30") or die(mysqli_error($conn));
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
@@ -239,9 +243,9 @@ function breakdown($conn) {
             $size = 30;
             // Get selection
             $selection = $row['selection'];
-            // Append flavour list
+            // If flavour selection isn't blank
             if ($selection !== "") {
-                // add a comma if needed
+                // Append flavour list, add a comma if needed
                 if ($flavours == "") {
                     $flavours .= $selection;
                 } else {
@@ -249,20 +253,22 @@ function breakdown($conn) {
                 }
             }
         }
-        // Turn string into array
-        $flavours = str_getcsv($flavours);
-        // Trim the whitespace
-        $flavours = array_map('trim',$flavours);
-        // Count duplicates in array
-        $flavours = array_count_values($flavours);
-        // Loop through array
-        foreach ($flavours as $name=>$count) {
-            // Build table row for eah flavour
-            echo '<tr>'."\r\n";
-            echo '<td>'.$name.'</td>'."\r\n";
-            echo '<td>'.$size.'</td>'."\r\n";
-            echo '<td>'.$count.'</td>'."\r\n";
-            echo '</tr>'."\r\n";
+        if ($flavours !== "") {
+            // Turn string into array
+            $flavours = str_getcsv($flavours);
+            // Trim the whitespace
+            $flavours = array_map('trim',$flavours);
+            // Count duplicates in array
+            $flavours = array_count_values($flavours);
+            // Loop through array
+            foreach ($flavours as $name=>$count) {
+                // Build table row for eah flavour
+                echo '<tr>'."\r\n";
+                echo '<td>'.$name.'</td>'."\r\n";
+                echo '<td class="text-center">'.$size.'</td>'."\r\n";
+                echo '<td class="text-center">'.$count.'</td>'."\r\n";
+                echo '</tr>'."\r\n";
+            }
         }
     }
 }
