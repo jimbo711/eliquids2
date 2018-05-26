@@ -62,23 +62,33 @@ if (isset($_GET['markdone'])) {
     }
 // If remove button was clicked
 } else if (isset($_GET['remove'])) {
-    // Get user input
-    $selection = $_GET['edit'];
-    // If at least one box was checked
-    if (count($selection) > 0) {
-        // Loop through array of checked boxes
-        foreach ($selection as $id){
-            // Store query
-            $sql = "DELETE FROM orders WHERE id = '$id'";
-            // Run query
-            mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    // If nothing was checked
+    if (!isset($_GET['edit'])) {
+        // Page header
+        require_once 'header.php';
+        ?>
+        <div class="container">
+            <h1><?php echo $page_title; ?></h1>
+        <?php
+        // Report and link home
+        echo '<div class="alert alert-danger" role="alert">Nothing was selected.'."</div>\r\n";
+        echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+    } else {
+        // Get user input
+        $selection = $_GET['edit'];
+        // If at least one box was checked
+        if (count($selection) > 0) {
+            // Loop through array of checked boxes
+            foreach ($selection as $id){
+                // Store query
+                $sql = "DELETE FROM orders WHERE id = '$id'";
+                // Run query
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            }
+            // Redirect home
+            header('Location: ../index.php');
         }
-        // Redirect home
-        header('Location: ../index.php');
-    } /*
-
-    ELSE BUILD AND DISPLAY ERRORS
-    */
+    }
 // If edit button was clicked
 } else if (isset($_GET['editorder'])) {
     // Page header
