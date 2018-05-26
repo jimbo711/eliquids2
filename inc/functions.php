@@ -26,7 +26,6 @@ function current_stock($conn) {
                     $flavours .= ", ".$selection;
                 }
             }
-            
         }
         // If flavours isn't blank
         if ($flavours !== "") {
@@ -79,8 +78,8 @@ function current_stock($conn) {
     Display select field
         populated with all of the flavours from current stock.
 
-    - $n is passed in and is used as the name of the select field in HTML
-    - $conn is passed in and is used as the database connection
+    - $n is passed in and is used as the name of the select field in HTML.
+    - $conn is passed in and is used as the database connection.
 
 ***************************************/
 function flavourfield($n, $conn) {
