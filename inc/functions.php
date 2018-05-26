@@ -130,14 +130,14 @@ function unfulfilled_orders($conn) {
             $fulfilled = $row['fulfilled'];
             if (!$fulfilled) {
                 echo "<tr".' class="row"'.">\r\n";
-                echo "<td".' style="width: 12.499999995%"'.">".$row['date']."</td>\r\n";
-                echo "<td".' class="col-2"'.">".$row['name']."</td>\r\n";
+                echo "<td".' class="col"'.">".$row['date']."</td>\r\n";
+                echo "<td".' class="col"'.">".$row['name']."</td>\r\n";
                 echo "<td".' class="col"'.">".$row['username']."</td>\r\n";
-                echo "<td".' class="col-1"'.">".$row['size']."mL</td>\r\n";
-                echo "<td".' class="col-1"'.">".$row['orderqty']."</td>\r\n";
+                echo "<td".' class="col-1 text-center"'.">".$row['size']."mL</td>\r\n";
+                echo "<td".' class="col-1 text-center"'.">".$row['orderqty']."</td>\r\n";
                 echo "<td".' class="col-3"'.">".$row['selection']."</td>\r\n";
                 // Last column will be a checkbox with a value equal to the row ID
-                echo "<td".' style="width: 12.499999995%"'."><input type=\"checkbox\" id=\"edit\" name=\"edit[]\" value=\"".$row['id']."\"></td>\r\n";
+                echo "<td".' class="col-1 text-center"'."><input type=\"checkbox\" id=\"edit\" name=\"edit[]\" value=\"".$row['id']."\"></td>\r\n";
                 echo "</tr>\r\n";
             }
         }

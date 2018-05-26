@@ -84,17 +84,17 @@ require_once 'inc/header.php';
     <hr>
     <div id="unfulfilled" class="row">
         <h2>Unfulfilled Orders</h2>
-        <table id="unfulfilled-table" class="table table-striped border-bottom col-12">
+        <table id="unfulfilled-table" class="table table-striped border-bottom">
             <form action="inc/markfulfilled.php" name="unfulfilledorders" method="GET">
             <thead>
                 <tr class="row">
-                    <th style="width: 12.499999995%">Date</th>
-                    <th class="col-2">Name</th>
+                    <th class="col">Date</th>
+                    <th class="col">Name</th>
                     <th class="col">Username</th>
-                    <th class="col-1">Size</th>
-                    <th class="col-1">Qty</th>
+                    <th class="col-1 text-center">Size</th>
+                    <th class="col-1 text-center">Qty</th>
                     <th class="col-3">Selection</th>
-                    <th style="width: 12.499999995%"></th>
+                    <th class="col-1" class="text-center"></th>
                 </tr>
             </thead>
             <?php unfulfilled_orders($conn); ?>
