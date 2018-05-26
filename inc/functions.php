@@ -253,10 +253,8 @@ function breakdown($conn, $bottleSize) {
             }
         }
     } else {
-        echo "No results";
+        echo '<div class="alert alert-success" role="alert">No '.$bottleSize.'mL orders.</div>'."\r\n";
     }
-    // Clear selection.
-    $flavours = "";
 }
 /***************************************
 
