@@ -58,6 +58,8 @@ $selectionString = htmlspecialchars($selectionString);
 
 // Continue if error message is still empty
 if ($errors == "") {
+    // Remove $name from $address if it's been prepended.
+    $address = trim(str_replace($name, "", $address));
     // store query
     // Update db table columns with data from from
     $sql = 
