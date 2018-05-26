@@ -149,7 +149,8 @@ if (isset($_GET['markdone']) && isset($_GET['edit'])) {
                                         <div class="input-group">
                                             <textarea class="form-control" rows="4" id="address<?php echo $rowid ?>" name="address"><?php 
                                                 $address = $row['address'];
-                                                if ($address !== "") {
+                                                $name = $row['name'];
+                                                if ($address !== "" && !strpos($address, $name)) {
                                                     // Display name followed by address, find and replace ", " with line break.
                                                     echo $row['name']."\r\n".trim(str_replace(", ","\r\n",$address));
                                                 }
