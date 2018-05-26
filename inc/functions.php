@@ -82,9 +82,9 @@ function current_stock($conn) {
     - $conn is passed in and is used as the database connection.
 
 ***************************************/
-function flavourfield($n, $conn) {
+function flavourfield($name, $conn) {
     // Open select tag
-    echo '<select name="'.$n.'"'.' class="form-control"'.'>'."\r\n";
+    echo '<select name="'.$name.'"'.' class="form-control"'.'>'."\r\n";
     // First option is blank
     echo '<option value="" disabled selected>Select Flavour...</option>'."\r\n";
     // Query all the liquid names
@@ -114,6 +114,24 @@ function editFlavourField($name, $flavour, $conn) {
         $liquidname = $row["liquidname"];
         // Create an option in the select feild for each liquid name
         echo "<option>".$liquidname."</option>\r\n";
+    }
+    // Close select tag
+    echo "</select>\r\n";
+}
+function bottledflavourfield($name, $conn){
+    // Open select tag
+    echo '<select name="'.$name.'"'.' class="form-control"'.'>'."\r\n";
+    // First option is blank
+    echo '<option value="" disabled selected>Select Flavour...</option>'."\r\n";
+    // Query all the liquid names
+    $sql = "SELECT flavour FROM bottledliquids ORDER BY flavour ASC";
+    $result = mysqli_query($conn, $sql) 
+            or die("Select field query failed: ".mysqli_error($conn));
+    // Make them into an array and loop through
+    while ($row=mysqli_fetch_array($result)) {
+        $flavourname = $row["flavour"];
+        // Create an option in the select feild for each liquid name
+        echo "<option>".$flavourname."</option>\r\n";
     }
     // Close select tag
     echo "</select>\r\n";
@@ -263,8 +281,8 @@ function bottledLiquids($conn) {
             echo '<tr>'."\r\n";
             echo '<td>'.$id.'</td>'."\r\n";
             echo '<td>'.$name.'</td>'."\r\n";
-            echo '<td class="text-center">'.$size.'</td>'."\r\n";
             echo '<td class="text-center">'.$qty.'</td>'."\r\n";
+            echo '<td class="text-center">'.$size.'</td>'."\r\n";
             echo '</tr>'."\r\n";
         }
     } else {

@@ -87,7 +87,7 @@ require_once 'inc/header.php';
     </div><!-- /row -->
     <hr>
     <div id="unfulfilled" class="row">
-        <h2>Unfulfilled Orders</h2>
+        <h1>Unfulfilled Orders</h1>
         <table id="unfulfilled-table" class="table table-striped border-bottom">
             <form action="inc/markfulfilled.php" name="unfulfilledorders" method="GET">
             <thead>

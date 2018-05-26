@@ -18,6 +18,7 @@ require_once 'header.php';
         // Get user input
         $newLiquidName = trim($_GET['name']);
         $newLiquidQty = $_GET['qty'];
+        $newLiquidSize = $_GET['size'];
         // Create empty error message
         $errors = "";
         // validate name field (only letters, dashes and spaces)
@@ -25,8 +26,11 @@ require_once 'header.php';
             $errors .= '<div class="alert alert-warning" role="alert">Invalid Name - Only letters, dashes and spaces are allowed.'."</div>\r\n";
         }
         // vaildate qty (must be numeric and not empty)
-        if (!is_numeric($newLiquidQty)) {
+        if (!isset($newLiquidQty) || !is_numeric($newLiquidQty)) {
             $errors .= '<div class="alert alert-warning" role="alert">Invalid Quantity - Must be a number and not blank.'."</div>\r\n";
+        }
+        if (!isset($newLiquidSize) || !is_numeric($newLiquidSize)) {
+            $errors .= '<div class="alert alert-warning" role="alert">Invalid Size - Must be set to 10, 15 or 30.'."</div>\r\n";
         }
         // Continue if error message is still empty
         if ($errors == "") {
@@ -39,8 +43,8 @@ require_once 'header.php';
             // store query in var
             $sql = 
                 // insert inputs into these columns
-                "INSERT INTO madeliquids (`liquidname`, `qty`) 
-                VALUES ('$newLiquidName', '$newLiquidQty')";
+                "INSERT INTO bottledliquids (`flavour`, `qty`, `size`) 
+                VALUES ('$newLiquidName', '$newLiquidQty', '$newLiquidSize')";
             // Run Query
             if (mysqli_query($conn, $sql)) {
                 header('Location: ../stock.php');
@@ -69,11 +73,11 @@ require_once 'header.php';
         // Continue if error message is still empty
         if ($errors == "") {
             // Store query
-            $sql = "DELETE FROM madeliquids WHERE id='$rowID'";
+            $sql = "DELETE FROM bottledliquids WHERE id='$rowID'";
             // Run Query
             if (mysqli_query($conn, $sql)) {
                 // Return home
-                header('Location: ../index.php');
+                header('Location: ../stock.php');
             } else {
                 echo "Error updating record: " . mysqli_error($conn);
             }
@@ -81,7 +85,7 @@ require_once 'header.php';
             // Else (there were errors), report and link home
             echo '<div class="alert alert-danger" role="alert">Operation aborted.  See Below:'."</div>\r\n";
             echo $errors;
-            echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+            echo '<p><a href="../stock.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
         }
     }
     // If one of the three update options were clicked
@@ -108,9 +112,9 @@ require_once 'header.php';
                 If INCREASE was clicked
             */
             if (isset($_GET['increase-btn'])) {
-                $sql = "UPDATE madeliquids SET qty = qty + $newQty WHERE liquidname='$name'";
+                $sql = "UPDATE bottledliquids SET qty = qty + $newQty WHERE flavour='$name'";
                 if (mysqli_query($conn, $sql)) {
-                    header('Location: ../index.php');
+                    header('Location: ../stock.php');
                 } else {
                     echo "Error updating record: " . mysqli_error($conn);
                 }
@@ -119,9 +123,9 @@ require_once 'header.php';
                 If DECREASE was clicked
             */
             if (isset($_GET['decrease-btn'])) {
-                $sql = "UPDATE madeliquids SET qty = qty - $newQty WHERE liquidname='$name'";
+                $sql = "UPDATE bottledliquids SET qty = qty - $newQty WHERE flavour='$name'";
                 if (mysqli_query($conn, $sql)) {
-                    header('Location: ../index.php');
+                    header('Location: ../stock.php');
                 } else {
                     echo "Error updating record: " . mysqli_error($conn);
                 }
@@ -130,9 +134,9 @@ require_once 'header.php';
                 If NEW QTY was clicked
             */
             if (isset($_GET['newqty-btn'])) {
-                $sql = "UPDATE madeliquids SET qty = $newQty WHERE liquidname='$name'";
+                $sql = "UPDATE bottledliquids SET qty = $newQty WHERE flavour='$name'";
                 if (mysqli_query($conn, $sql)) {
-                    header('Location: ../index.php');
+                    header('Location: ../stock.php');
                 } else {
                     echo "Error updating record: " . mysqli_error($conn);
                 }
@@ -141,7 +145,7 @@ require_once 'header.php';
             // Else (there were errors), report and link home
             echo '<div class="alert alert-danger" role="alert">Operation aborted.  See Below:'."</div>\r\n";
             echo $errors;
-            echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
+            echo '<p><a href="../stock.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
         }
     }
     ?>

@@ -1,6 +1,7 @@
 html { font-size: 0.75rem; }
 body { padding-top: 40px; position: relative !important;}
 h1, h2, h3, h4 { padding: 10px 0; }
+h1 { padding: 25px 0; }
 @media (min-width: 576px) {
     html { font-size: 0.8rem; }
     body { padding-top: 50px; }

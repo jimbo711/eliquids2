@@ -9,11 +9,11 @@
     validateDelRow()
         validate delete row form on submit
 */
-function validateDelRow() {
+function validateDelRow(inputId) {
     //  New Error Msg
     var errors = "";
     //  Check row id 
-    var row = document.getElementById('delrowid').value;
+    var row = document.getElementById(inputId).value;
     if (row == "" || isNaN(row) || row < 0) {
         errors += "Invalid Row ID.\n";
     }
@@ -34,16 +34,16 @@ function validateDelRow() {
     validateAddFlv()
         Validate 'Add Flavour' form on submit
 */
-function validateAddFlv() {
+function validateAddFlv(nameId, qtyId) {
     //  New Error Msg
     var errors = "";
     //  Check flavour name 
-    var name = document.getElementById('addFlavourName').value;
+    var name = document.getElementById(nameId).value;
     if (name == "" || typeof name !== "string" || name.length < 3) {
         errors += "Invalid Flavour Name.\n";
     }
     //  Check quantity
-    var qty = document.getElementById('addFlavourQty').value;
+    var qty = document.getElementById(qtyId).value;
     if (qty == "" || isNaN(qty) || qty > 2000) {
         errors += "Invalid Quantity";
     }
