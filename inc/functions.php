@@ -8,14 +8,55 @@
 
 ***************************************/
 function current_stock($conn) {
-    // Query all results from table
+    // String to store flavours sold
+    $flavours = "";
+    // Query all results from orders table
+    $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled=1") or die(mysqli_error($conn));
+    if (mysqli_num_rows($results) > 0) {
+        // Loop through
+        while ($row = mysqli_fetch_array($results)) {
+            // Get flavour selection
+            $selection = $row['selection'];
+            // If flavour selection isn't blank
+            if ($selection !== "") {
+                // Append flavour list, add a comma if needed
+                if ($flavours == "") {
+                    $flavours .= $selection;
+                } else {
+                    $flavours .= ", ".$selection;
+                }
+            }
+            
+        }
+        // If flavours isn't blank
+        if ($flavours !== "") {
+            // Turn string into array
+            $flavours = str_getcsv($flavours);
+            // Trim the whitespace
+            $flavours = array_map('trim',$flavours);
+            // Count duplicates in array
+            $flavours = array_count_values($flavours);
+        }
+    } else {
+        echo "No results";
+    }
+    // Query all results from madeliquids table
     $results = mysqli_query($conn, "SELECT * FROM madeliquids ORDER BY liquidname ASC") or die(mysqli_error($conn));
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
         // $row = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
         while($row = mysqli_fetch_array($results)){
             $qty = $row['qty'];
-            $id  = $row['id']; 
+            $id  = $row['id'];
+            $name = $row['liquidname'];
+            // If there is no count of this liquid in the flavours-sold list
+            if (!array_key_exists($name,$flavours)) {
+                // Zero sold
+                $sold = 0;
+            } else {
+                // Else get the count of this liquid from the $flavours array.
+                $sold = $flavours[$name];
+            }
             // if qty of liquid is less than 0, make it 0
             if ($qty < 0) {
                 $sql = "UPDATE madeliquids SET qty=0 WHERE id='$id';";
@@ -23,11 +64,11 @@ function current_stock($conn) {
                 $qty = 0;
             }
             // each iterration, create a html table row and fill it with db row data
-            echo "<tr".'scope="row"'.">
+            echo "<tr>
                       <td>".$id."</td>
-                      <td>".$row['liquidname']."</td>
+                      <td>".$name."</td>
                       <td>".$qty."</td>
-                      <td>".$row['sold']."</td></tr>\r\n";
+                      <td>".$sold."</td></tr>\r\n";
         }
     } else {
         echo "No results";
