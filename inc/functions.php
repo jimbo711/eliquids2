@@ -284,7 +284,7 @@ function bottledLiquids($conn) {
             echo '</tr>'."\r\n";
         }
     } else {
-        echo "No results";
+        echo '<div class="alert alert-warning" role="alert">There are no ready-made bottles in the database.'."</div>\r\n";
     }
 }
 ?>

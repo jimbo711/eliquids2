@@ -98,7 +98,7 @@ require_once 'inc/header.php';
     </div>
 
     <div id="bottled" class="row mb-3">
-        <h1>Ready-Made Bottles</h1>
+        <h1 class="col-12">Ready-Made Bottles</h1>
         <table class="table table-striped border-bottom">
             <thead class="thead">
                 <tr>
