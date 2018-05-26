@@ -49,10 +49,6 @@ if (isset($_GET['markdone']) && isset($_GET['edit'])) {
                         $sql = "UPDATE madeliquids SET qty = qty - '$size' WHERE liquidname = '$choice'";
                         // run query
                         mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                        // store query - increase number sold
-                        $sql = "UPDATE madeliquids SET sold = sold + 1 WHERE liquidname = '$choice'";
-                        // run query
-                        mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     }
                 }
             }
