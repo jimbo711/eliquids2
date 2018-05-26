@@ -235,7 +235,7 @@ function breakdown($conn, $bottleSize) {
             }
         }
     }
-    // Clear selection
+    // Clear selection.
     $flavours = "";
 }
 ?>
