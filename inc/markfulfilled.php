@@ -12,7 +12,7 @@ if (isset($_GET['editorder'])) {
 // Set path to root
 $path_home = "../";
 // If mark fulfilled button was clicked
-if (isset($_GET['markdone'])) {
+if (isset($_GET['markdone']) && isset($_GET['edit'])) {
     // Get user input
     $fulfilled = $_GET['edit'];
     // Check at least one box was checked
@@ -61,36 +61,23 @@ if (isset($_GET['markdone'])) {
         header('Location: ../index.php');
     }
 // If remove button was clicked
-} else if (isset($_GET['remove'])) {
-    // If nothing was checked
-    if (!isset($_GET['edit'])) {
-        // Page header
-        require_once 'header.php';
-        ?>
-        <div class="container">
-            <h1><?php echo $page_title; ?></h1>
-        <?php
-        // Report and link home
-        echo '<div class="alert alert-danger" role="alert">Nothing was selected.'."</div>\r\n";
-        echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
-    } else {
-        // Get user input
-        $selection = $_GET['edit'];
-        // If at least one box was checked
-        if (count($selection) > 0) {
-            // Loop through array of checked boxes
-            foreach ($selection as $id){
-                // Store query
-                $sql = "DELETE FROM orders WHERE id = '$id'";
-                // Run query
-                mysqli_query($conn, $sql) or die(mysqli_error($conn));
-            }
-            // Redirect home
-            header('Location: ../index.php');
+} else if (isset($_GET['remove']) && isset($_GET['edit'])) {
+    // Get user input
+    $selection = $_GET['edit'];
+    // If at least one box was checked
+    if (count($selection) > 0) {
+        // Loop through array of checked boxes
+        foreach ($selection as $id){
+            // Store query
+            $sql = "DELETE FROM orders WHERE id = '$id'";
+            // Run query
+            mysqli_query($conn, $sql) or die(mysqli_error($conn));
         }
+        // Redirect home
+        header('Location: ../index.php');
     }
 // If edit button was clicked
-} else if (isset($_GET['editorder'])) {
+} else if (isset($_GET['editorder']) && isset($_GET['edit'])) {
     // Page header
     require_once 'header.php';
     ?>
@@ -255,6 +242,12 @@ if (isset($_GET['markdone'])) {
         }
     }
 } else {
+    // Page header
+    require_once 'header.php';
+    ?>
+    <div class="container">
+        <h1><?php echo $page_title; ?></h1>
+    <?php
     // Else (nothing was selected), report and link home
     echo '<div class="alert alert-danger" role="alert">Nothing was selected.'."</div>\r\n";
     echo '<p><a href="../index.php" '.'class="btn btn-primary"'.'>'."Go Back...</a></p>\r\n";
