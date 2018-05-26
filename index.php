@@ -76,7 +76,11 @@ require_once 'inc/header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php breakdown($conn); ?>
+                    <?php
+                    breakdown($conn, 10);
+                    breakdown($conn, 15);
+                    breakdown($conn, 30);
+                    ?>
                 </tbody>
             </table>
         </div>
