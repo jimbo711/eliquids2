@@ -198,7 +198,7 @@ function unfulfilled_orders($conn) {
 function breakdown($conn, $bottleSize) {
     // This string will hold all the flavour selections
     $flavours = "";
-    // Query all unfulfilled orders for 10mL bottles
+    // Query all unfulfilled orders for with size of $bottleSize
     $results = mysqli_query($conn, "SELECT * FROM orders WHERE fulfilled = 0 AND size = $bottleSize") or die(mysqli_error($conn));
     // if one or more rows are returned
     if(mysqli_num_rows($results) > 0){
@@ -234,8 +234,41 @@ function breakdown($conn, $bottleSize) {
                 echo '</tr>'."\r\n";
             }
         }
+    } else {
+        echo "No results";
     }
     // Clear selection.
     $flavours = "";
+}
+/***************************************
+
+    Create and populate rows of 'Ready-Made Bottles' html table
+        with processed data from 'bottledliquids' db table.
+
+    - $conn is passed in and is used as the databse connection.
+
+***************************************/
+function bottledLiquids($conn) {
+    // Query all results from bottledliquids table
+    $results = mysqli_query($conn, "SELECT * FROM bottledliquids ORDER BY size ASC, flavour ASC") or die(mysqli_error($conn));
+    // if one or more rows are returned
+    if(mysqli_num_rows($results) > 0){
+        // loop through returned rows
+        while($row = mysqli_fetch_array($results)){
+            $id   = $row['id'];
+            $name = $row['flavour'];
+            $size = $row['size'];
+            $qty  = $row['qty'];
+            // Build table row for each flavour
+            echo '<tr>'."\r\n";
+            echo '<td>'.$id.'</td>'."\r\n";
+            echo '<td>'.$name.'</td>'."\r\n";
+            echo '<td class="text-center">'.$size.'</td>'."\r\n";
+            echo '<td class="text-center">'.$qty.'</td>'."\r\n";
+            echo '</tr>'."\r\n";
+        }
+    } else {
+        echo "No results";
+    }
 }
 ?>

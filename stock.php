@@ -14,7 +14,7 @@ require_once 'inc/header.php';
 ?>
 <div class="container">
 
-    <div id="stock" class="row">
+    <div id="stock" class="row mb-3">
         <h1>Current Stock</h1>
         <table class="table table-striped border-bottom">
             <thead class="thead">
@@ -26,12 +26,12 @@ require_once 'inc/header.php';
                 </tr>
             </thead>
             <tbody>
-            <?php current_stock($conn); ?>
+                <?php current_stock($conn); ?>
             </tbody>
         </table>
     </div>
 
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-6 col-lg-4">
             <h4>New Flavour</h4>
             <form class="form" action="inc/editmadeliquids.php" onsubmit="return validateAddFlv()" method="GET">
@@ -95,6 +95,23 @@ require_once 'inc/header.php';
             </div>              
             </form>
         </div>
+    </div>
+
+    <div id="bottled" class="row mb-3">
+        <h1>Ready-Made Bottles</h1>
+        <table class="table table-striped border-bottom">
+            <thead class="thead">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Flavour</th>
+                    <th scope="col" class="text-center">Qty</th>
+                    <th scope="col" class="text-center">Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php bottledLiquids($conn); ?>
+            </tbody>
+        </table>
     </div>
 
 </div><!-- /#container -->
