@@ -1,4 +1,6 @@
 <?php 
+// Start a session so we can use the following data on the next page
+    session_start();
 // Connect to DB
 require_once 'inc/connect.php';
 // PHP functions
@@ -10,8 +12,7 @@ require_once 'inc/header.php';
 ?>
 <div class="container">
     <?php
-    // Start a session so we can use the following data on the next page
-    session_start();
+    
     // Get user input
     $date     = $_GET['date'];
     $name     = $_GET['name'];
