@@ -101,11 +101,11 @@ function flavourfield($n, $conn) {
     // Close select tag
     echo "</select>\r\n";
 }
-function editFlavourField($n, $f, $conn) {
+function editFlavourField($name, $flavour, $conn) {
     // Open select tag
-    echo '<select name="'.$n.'"'.' class="form-control"'.'>'."\r\n";
+    echo '<select name="'.$name.'"'.' class="form-control"'.'>'."\r\n";
     // First option is $f
-    echo '<option selected>'.$f.'</option>'."\r\n";
+    echo '<option selected>'.$flavour.'</option>'."\r\n";
     // Query all the liquid names
     $sql = "SELECT liquidname FROM madeliquids ORDER BY liquidname ASC";
     $result = mysqli_query($conn, $sql) 
