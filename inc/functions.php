@@ -242,6 +242,8 @@ function breakdown($conn, $bottleSize) {
             $flavours = array_map('trim',$flavours);
             // Count duplicates in array
             $flavours = array_count_values($flavours);
+            // Sort by values descending
+            arsort($flavours);
             // Loop through array
             foreach ($flavours as $name=>$count) {
                 // Build table row for eah flavour
