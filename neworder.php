@@ -42,9 +42,9 @@ require_once 'inc/header.php';
     // validate name field (only letters, dashes and spaces)
     if ($name == "") {
         $errors .= '<div class="alert alert-warning" role="alert">You must enter the customer name.'."</div>\r\n";
-    } else if(!preg_match("/^[a-zA-Z\'\-\040\.]+$/", $name)){
+    } /*else if(!preg_match("/^[a-zA-Z\'\-\040\.]+$/", $name)){
         $errors .= '<div class="alert alert-warning" role="alert">Invalid name - Only letters, dashes and spaces are allowed.'."</div>\r\n";
-    }
+    }*/
     // validate size field (must be set and must be a number)
     if($size == "" || !is_numeric($size)) {
         $errors .= '<div class="alert alert-warning" role="alert">You must select a bottle size.'."</div>\r\n";
