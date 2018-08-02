@@ -19,7 +19,7 @@ require_once 'inc/header.php';
                 <form action="neworder.php" onsubmit="return validateOrder()" method="GET">
                 <tr>
                     <th>Date</th>
-                    <td><input type="date" class="form-control" name="date" value="<?php echo date("Y-m-j"); ?>"></td>
+                    <td><input type="date" class="form-control" name="date" value="<?php echo date("j-m-Y"); ?>"></td>
                 </tr>
                 <tr>
                     <th>Name</th>
